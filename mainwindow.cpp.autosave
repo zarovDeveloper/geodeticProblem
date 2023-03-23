@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     QIntValidator *validatorDegree = new QIntValidator(-360, 360, this);
     ui->lineEdit_directGD_angle_degrees->setValidator(validatorDegree);
+    ui->lineEdit_directGD_angle_degrees->set
 
     QIntValidator *validatorMinutes = new QIntValidator(0, 60, this);
     ui->lineEdit_directGD_angle_minutes->setValidator(validatorMinutes);
