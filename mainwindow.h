@@ -8,8 +8,6 @@
 #include <qmath.h>
 #include <QValidator>
 
-#define PI 3.14159265
-
 namespace Ui {
 class MainWindow;
 }
@@ -24,30 +22,56 @@ public:
 
 private slots:
 
-    void on_pushButton_directGD_main_clicked();
+    void on_pushButton_directGD_main_clicked(); //button "Прямая геодезическая задача" in main
 
-    void on_pushButton_directGD_back_clicked();
+    void on_pushButton_directGD_back_clicked(); //button "Назад" in directGD
 
-    void on_pushButton_directGD_solve_clicked();
+    void on_pushButton_directGD_solve_clicked(); //button "Решить" in directGD
 
-    void on_pushButton_directGDres_goToMain_clicked();
+    void on_pushButton_resDirectGD_back_clicked(); //button "Назад" in resDirectGD
 
-    void on_pushButton_directGDres_back_clicked();
+    void on_pushButton_resDirectGD_goToMain_clicked(); //button "На главную страницу" in resDirectGD
 
-    void go_main();
+    void on_lineEdit_directGD_inputScale_textChanged(const QString &arg1); //change lineEdit scale in directGD
 
-    void go_back();
+    void go_main(); //func to go to main
 
-    void setValidator();
+    void go_back(); //func to go back
 
-    void on_lineEdit_directGD_inputScale_textChanged(const QString &arg1);
+    void go_next(); //func to go next
+
+    void setValidator(); //func for set Validator in lineEdit and spinBox
+
+    void on_pushButton_reverseGD_back_clicked();
+
+    void on_pushButton_inverseGD_main_clicked();
+
+    void on_pushButton_reverseGD_solve_clicked();
+
+    void on_pushButton_resReverseGD_back_clicked();
+
+    void on_pushButton_resReverseGD_goToMain_clicked();
+
+    void on_lineEdit_reversGD_inputAx_textChanged(const QString &arg1);
+
+    void on_lineEdit_reversGD_inputBx_textChanged(const QString &arg1);
+
+    void on_lineEdit_reversGD_inputAy_textChanged(const QString &arg1);
+
+    void on_lineEdit_reversGD_inputBy_textChanged(const QString &arg1);
+
+    void on_lineEdit_directGD_inputAx_textChanged(const QString &arg1);
+
+    void on_lineEdit_directGD_inputAy_textChanged(const QString &arg1);
+
+    void on_lineEdit_directGD_inputL_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
 
     void directGD(double latA, double lonA, double angle, double distance, double& latB, double& lonB)
     {
-        double radians = angle * PI / 180;
+        double radians = angle * M_PI / 180;
 
         double deltaX = distance * cos(radians);
         double deltaY = distance * sin(radians);
@@ -56,7 +80,7 @@ private:
         lonB = lonA + deltaY;
     }
 
-    void angleOfDMS(double degrees, double minutes, double seconds, double& angle)
+    void angleImDMS(double degrees, double minutes, double seconds, double& angle)
     {
         angle = degrees + (minutes / 60.0) + (seconds / 3600.0);
     }
@@ -77,13 +101,50 @@ private:
 
         //solve angle
 
-        angleOfDMS(degrees, minutes, seconds, angle); //angle of degrees, minutes, seconds
+        angleImDMS(degrees, minutes, seconds, angle); //angle of degrees, minutes, seconds
 
         //solve directGD
 
         directGD(latA, lonA, angle, scaleDistance, latB, lonB);
     }
 
+    void reverseGD_solve(double latA, double lonA, double latB, double lonB, double& distance, double& degrees, double& seconds, double& minutes)
+    {
+        double angle;
+
+        reversGD(latA, lonA, latB, lonB, distance, angle);
+
+        angleFromDecimalAngle(angle, degrees, seconds, minutes);
+
+        if (degrees < 0) degrees += 360;
+
+    }
+
+    void reversGD(double latA, double lonA, double latB, double lonB, double& distance, double& angle)
+    {
+        double deltaX = latB - latA;
+        double deltaY = lonB - lonA;
+
+        angle = (atan(deltaY / deltaX) * 180 / M_PI);
+
+        distance = sqrt(deltaX*deltaX + deltaY*deltaY);
+
+        if (deltaX < 0 and deltaY > 0) angle -= 180;
+        else if (deltaX < 0 and deltaY < 0) angle += 180;
+        else if (deltaX > 0 and deltaY < 0) return;
+    }
+
+    void angleFromDecimalAngle(double angle, double& degrees, double& minutes, double& seconds)
+    {
+        degrees = floor(angle);
+        double tmpMinutes = (angle - degrees) * 60;
+
+        minutes = floor(tmpMinutes);
+        double tmpSeconds = (tmpMinutes - minutes) * 60;
+
+        seconds = round(tmpSeconds);
+    }
 };
 
 #endif // MAINWINDOW_H
+
