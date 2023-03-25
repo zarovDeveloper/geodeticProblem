@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>768</width>
-    <height>445</height>
+    <height>486</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,8 +35,8 @@
      <widget class="QPushButton" name="pushButton_directGD_main">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>130</y>
+        <x>120</x>
+        <y>170</y>
         <width>511</width>
         <height>71</height>
        </rect>
@@ -54,8 +54,8 @@
      <widget class="QPushButton" name="pushButton_inverseGD_main">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>220</y>
+        <x>120</x>
+        <y>260</y>
         <width>511</width>
         <height>71</height>
        </rect>
@@ -73,8 +73,8 @@
      <widget class="QLabel" name="label_main_solve">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>90</y>
+        <x>120</x>
+        <y>130</y>
         <width>121</width>
         <height>21</height>
        </rect>
@@ -94,7 +94,7 @@
      <widget class="QLabel" name="label_directGD_inputA">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>20</y>
         <width>471</width>
         <height>51</height>
@@ -112,7 +112,7 @@
      <widget class="QLabel" name="label_directGD_inputX">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>80</y>
         <width>31</width>
         <height>41</height>
@@ -130,7 +130,7 @@
      <widget class="QLabel" name="label_directGD_inputY">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>130</y>
         <width>31</width>
         <height>41</height>
@@ -145,52 +145,10 @@
        <string>Y:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_inputAx">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>80</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>20</number>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_inputAy">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>130</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>20</number>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_directGD_inputAngle">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>180</y>
         <width>71</width>
         <height>31</height>
@@ -205,31 +163,10 @@
        <string>Угол:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_angle_degrees">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>220</y>
-        <width>81</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>4</number>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_directGD_Angle">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>230</y>
         <width>31</width>
         <height>31</height>
@@ -244,31 +181,10 @@
        <string>α:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_L">
-      <property name="geometry">
-       <rect>
-        <x>60</x>
-        <y>330</y>
-        <width>151</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>20</number>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_directGD_L">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>30</x>
         <y>330</y>
         <width>31</width>
         <height>41</height>
@@ -286,7 +202,7 @@
      <widget class="QLabel" name="label_directGD_inputL">
       <property name="geometry">
        <rect>
-        <x>10</x>
+        <x>20</x>
         <y>280</y>
         <width>691</width>
         <height>31</height>
@@ -304,8 +220,8 @@
      <widget class="QPushButton" name="pushButton_directGD_solve">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>360</y>
+        <x>600</x>
+        <y>390</y>
         <width>131</width>
         <height>51</height>
        </rect>
@@ -322,8 +238,8 @@
      <widget class="QPushButton" name="pushButton_directGD_back">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>360</y>
+        <x>450</x>
+        <y>390</y>
         <width>131</width>
         <height>51</height>
        </rect>
@@ -337,55 +253,10 @@
        <string>Назад</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_angle_minutes">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>220</y>
-        <width>141</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>20</number>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_directGD_angle_seconds">
-      <property name="geometry">
-       <rect>
-        <x>320</x>
-        <y>220</y>
-        <width>141</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>18</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>0</string>
-      </property>
-      <property name="maxLength">
-       <number>20</number>
-      </property>
-      <property name="cursorPosition">
-       <number>1</number>
-      </property>
-     </widget>
      <widget class="QLabel" name="label_degree">
       <property name="geometry">
        <rect>
-        <x>140</x>
+        <x>150</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -398,7 +269,7 @@
      <widget class="QLabel" name="label_minutes">
       <property name="geometry">
        <rect>
-        <x>300</x>
+        <x>310</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -416,7 +287,7 @@
      <widget class="QLabel" name="label_seconds">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>480</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -431,13 +302,185 @@
        <string>&quot;</string>
       </property>
      </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputAngle_degrees">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>220</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputAngle_minutes">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>220</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputAngle_seconds">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>220</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_directGD_inputAx">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>80</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.00</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_directGD_inputAy">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>130</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.00</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_directGD_inputL">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>330</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0.00</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_inputA_2">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>330</y>
+        <width>291</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>см   при радиусе:  1:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_directGD_inputScale">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>330</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>100</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="resDirectGD_page">
      <widget class="QLabel" name="label_directGD_coordB">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>40</y>
+        <x>70</x>
+        <y>70</y>
         <width>471</width>
         <height>51</height>
        </rect>
@@ -454,8 +497,8 @@
      <widget class="QLineEdit" name="lineEdit_directGD_ansBx">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>100</y>
+        <x>110</x>
+        <y>130</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -481,8 +524,8 @@
      <widget class="QLabel" name="label_directGD_ansBy">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>150</y>
+        <x>70</x>
+        <y>180</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -499,8 +542,8 @@
      <widget class="QLineEdit" name="lineEdit_directGD_ansBy">
       <property name="geometry">
        <rect>
-        <x>90</x>
-        <y>150</y>
+        <x>110</x>
+        <y>180</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -520,8 +563,8 @@
      <widget class="QLabel" name="label_directGD_ansBx">
       <property name="geometry">
        <rect>
-        <x>50</x>
-        <y>100</y>
+        <x>70</x>
+        <y>130</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -538,8 +581,8 @@
      <widget class="QPushButton" name="pushButton_directGDres_goToMain">
       <property name="geometry">
        <rect>
-        <x>380</x>
-        <y>260</y>
+        <x>340</x>
+        <y>290</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -556,8 +599,8 @@
      <widget class="QPushButton" name="pushButton_directGDres_back">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>260</y>
+        <x>190</x>
+        <y>290</y>
         <width>131</width>
         <height>51</height>
        </rect>

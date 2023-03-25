@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 #include <iostream>
+#include <QtWidgets>
 #include <cmath>
+#include <qmath.h>
 #include <QValidator>
 
 #define PI 3.14159265
@@ -30,13 +32,15 @@ private slots:
 
     void on_pushButton_directGDres_goToMain_clicked();
 
+    void on_pushButton_directGDres_back_clicked();
+
     void go_main();
 
     void go_back();
 
-    void directGD_solve();
+    void setValidator();
 
-    void on_pushButton_directGDres_back_clicked();
+    void on_lineEdit_directGD_inputScale_textChanged(const QString &arg1);
 
 private:
     Ui::MainWindow *ui;
@@ -55,6 +59,29 @@ private:
     void angleOfDMS(double degrees, double minutes, double seconds, double& angle)
     {
         angle = degrees + (minutes / 60.0) + (seconds / 3600.0);
+    }
+
+    void realSize(double distance, int scale, double& scaleDistance)
+    {
+        scaleDistance = (distance * scale) / 100;
+    }
+
+    void directGD_solve(double latA, double lonA, double degrees, double minutes, double seconds, double distance, int scale, double& latB, double& lonB)
+    {
+        double scaleDistance;
+        double angle;
+
+        //solve scale with distance
+
+        realSize(distance, scale, scaleDistance);
+
+        //solve angle
+
+        angleOfDMS(degrees, minutes, seconds, angle); //angle of degrees, minutes, seconds
+
+        //solve directGD
+
+        directGD(latA, lonA, angle, scaleDistance, latB, lonB);
     }
 
 };
