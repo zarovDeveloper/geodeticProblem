@@ -279,3 +279,41 @@ void MainWindow::on_lineEdit_directGD_inputL_textChanged(const QString &arg1)
         ui->lineEdit_directGD_inputL->setText(str.replace(",", "."));
     }
 }
+
+//chenges angle
+
+void MainWindow::on_spinBox_directGD_inputAngle_degrees_valueChanged(int arg1)
+{
+    if (arg1 == 360)
+    {
+        ui->spinBox_directGD_inputAngle_minutes->setValue(0);
+        ui->spinBox_directGD_inputAngle_minutes->setRange(0, 0);
+
+        ui->spinBox_resReverseGD_Angle_seconds->setValue(0);
+        ui->spinBox_directGD_inputAngle_seconds->setRange(0, 0);
+    }
+    else {
+        ui->spinBox_directGD_inputAngle_minutes->setRange(0, 60);
+        ui->spinBox_directGD_inputAngle_seconds->setRange(0, 60);
+    }
+}
+
+void MainWindow::on_spinBox_directGD_inputAngle_minutes_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_directGD_inputAngle_degrees->setValue(ui->spinBox_directGD_inputAngle_degrees->value() + 1);
+        ui->spinBox_directGD_inputAngle_minutes->setValue(0);
+    }
+}
+
+void MainWindow::on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_directGD_inputAngle_minutes->setValue(ui->spinBox_directGD_inputAngle_minutes->value() + 1);
+        ui->spinBox_directGD_inputAngle_seconds->setValue(0);
+    }
+}
+
+

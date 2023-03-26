@@ -66,6 +66,12 @@ private slots:
 
     void on_lineEdit_directGD_inputL_textChanged(const QString &arg1);
 
+    void on_spinBox_directGD_inputAngle_degrees_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputAngle_minutes_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 
