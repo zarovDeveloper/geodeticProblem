@@ -72,6 +72,7 @@ private slots:
 
     void on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1);
 
+
 private:
     Ui::MainWindow *ui;
 

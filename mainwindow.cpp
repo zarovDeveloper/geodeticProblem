@@ -130,9 +130,9 @@ void MainWindow::on_pushButton_reverseGD_solve_clicked() //button "Решить"
     double latB = ui->lineEdit_reversGD_inputBx->text().toDouble(); //coordinates of point A (x)
     double lonB = ui->lineEdit_reversGD_inputBy->text().toDouble(); //coordinates of point A (y)
 
-    reverseGD_solve(latA, lonA, latB, lonB, distance, degrees, minutes, seconds);
+    reverseGD_solve(latA, lonA, latB, lonB, distance, degrees, minutes, seconds); //solve
 
-    ui->lineEdit_resReverseGD_outputL->setText(QString::number(distance, 'f', 2));
+    ui->lineEdit_resReverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
     ui->spinBox_resReverseGD_Angle_degrees->setValue(int(degrees));
     ui->spinBox_resReverseGD_Angle_minutes->setValue(int(minutes));
     ui->spinBox_resReverseGD_Angle_seconds->setValue(int(seconds));
@@ -209,10 +209,16 @@ void MainWindow::setValidator() //change validator in lineEdit
 
 void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1) //dynamic zoom change
 {
-    if (arg1.right(2) != "00")
+    if ((arg1.right(2) != "00") or !(arg1.toDouble() > 0))
+    {//if arg1 not ending on 00 or arg1 - 0
         ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: red").arg(30));
+        ui->pushButton_directGD_solve->setEnabled(false);
+    }
     else
+    {//if all ok
         ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: black").arg(30));
+        ui->pushButton_directGD_solve->setEnabled(true);
+    }
 }
 
 //dynamic replace "," on "."
@@ -315,5 +321,4 @@ void MainWindow::on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1)
         ui->spinBox_directGD_inputAngle_seconds->setValue(0);
     }
 }
-
 
