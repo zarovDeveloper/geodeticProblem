@@ -15,6 +15,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //set Validator in lineEdit and spinBox
     setValidator();
+
+    //set radioButton
+    ui->radioButton_directGD_inputL->click();
+    ui->label_directGD_m_in_L->setVisible(false);
 }
 
 
@@ -58,7 +62,13 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
     double seconds = ui->spinBox_directGD_inputAngle_seconds->text().toDouble(); //angle seconds
 
     double distance = ui->lineEdit_directGD_inputL->text().toDouble(); //distance in sm
-    int scale = ui->lineEdit_directGD_inputScale->text().toInt(); //scale
+
+    //check radioButton
+    int scale;
+    if (ui->radioButton_directGD_inputHorizSpacing->isChecked())
+        scale = ui->lineEdit_directGD_inputScale->text().toInt(); //scale
+    else
+        scale = 100;
 
 
     if (QString::number(scale).right(2) != "00")
@@ -211,13 +221,20 @@ void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1
 {
     if ((arg1.right(2) != "00") or !(arg1.toDouble() > 0))
     {//if arg1 not ending on 00 or arg1 - 0
-        ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: red").arg(30));
+        ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: red").arg(28));
         ui->pushButton_directGD_solve->setEnabled(false);
     }
     else
     {//if all ok
-        ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: black").arg(30));
+        ui->lineEdit_directGD_inputScale->setStyleSheet(QString("font-size: %1px; color: black").arg(28));
         ui->pushButton_directGD_solve->setEnabled(true);
+    }
+
+    if(arg1.contains("e"))
+    {
+        QString str = arg1;
+        str.remove("e");
+        ui->lineEdit_directGD_inputScale->setText(str);
     }
 }
 
@@ -322,3 +339,20 @@ void MainWindow::on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1)
     }
 }
 
+
+//choice of option L
+
+
+void MainWindow::on_radioButton_directGD_inputL_clicked()
+{
+    ui->label_directGD_m_scale->setVisible(true);
+    ui->lineEdit_directGD_inputScale->setVisible(true);
+    ui->label_directGD_m_in_L->setVisible(false);
+}
+
+void MainWindow::on_radioButton_directGD_inputHorizSpacing_clicked()
+{
+    ui->label_directGD_m_in_L->setVisible(true);
+    ui->label_directGD_m_scale->setVisible(false);
+    ui->lineEdit_directGD_inputScale->setVisible(false);
+}

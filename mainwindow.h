@@ -8,6 +8,10 @@
 #include <qmath.h>
 #include <QValidator>
 
+#define A_E 6371.0				// радиус Земли в километрах
+#define Degrees(x) (x * 180 / M_PI)	// радианы -> градусы
+#define Radians(x) (x / M_PI / 180)	// градусы -> радианы
+
 namespace Ui {
 class MainWindow;
 }
@@ -72,6 +76,9 @@ private slots:
 
     void on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1);
 
+    void on_radioButton_directGD_inputL_clicked();
+
+    void on_radioButton_directGD_inputHorizSpacing_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -151,6 +158,104 @@ private:
 
         seconds = round(tmpSeconds);
     }
+
+
+    /*
+     * Решение прямой геодезической задачи
+     *
+     * Аргументы исходные:
+     *     pt1  - {широта, долгота} точки Q1
+     *     azi  - азимут начального направления
+     *     dist - расстояние (сферическое)
+     *
+     * Аргументы определяемые:
+     *     pt2  - {широта, долгота} точки Q2
+     */
+    void sphereDirect(double pt1[], double azi, double dist, double pt2[])
+    {
+      double pt[2], x[3];
+
+      pt[0] = M_PI_2 - dist;
+      pt[1] = M_PI - azi;
+      SpherToCart(pt, x);			// сферические -> декартовы
+      Rotate(x, pt1[0] - M_PI_2, 1);	// первое вращение
+      Rotate(x, -pt1[1], 2);		// второе вращение
+      CartToSpher(x, pt2);	     		// декартовы -> сферические
+
+      return;
+    }
+
+    /*
+     * Преобразование сферических координат в вектор
+     *
+     * Аргументы исходные:
+     *     y - {широта, долгота}
+     *
+     * Аргументы определяемые:
+     *     x - вектор {x, y, z}
+     */
+    void SpherToCart(double y[], double x[])
+    {
+      double p;
+
+      p = cos(y[0]);
+      x[2] = sin(y[0]);
+      x[1] = p * sin(y[1]);
+      x[0] = p * cos(y[1]);
+
+      return;
+    }
+
+    /*
+     * Вращение вокруг координатной оси
+     *
+     * Аргументы:
+     *     x - входной/выходной 3-вектор
+     *     a - угол вращения
+     *     i - номер координатной оси (0..2)
+     */
+    void Rotate(double x[], double a, int i)
+    {
+      double c, s, xj;
+      int j, k;
+
+      j = (i + 1) % 3;
+      k = (i - 1) % 3;
+      c = cos(a);
+      s = sin(a);
+      xj = x[j] * c + x[k] * s;
+      x[k] = -x[j] * s + x[k] * c;
+      x[j] = xj;
+
+      return;
+    }
+
+    /*
+     * Преобразование вектора в сферические координаты
+     *
+     * Аргументы исходные:
+     *     x - {x, y, z}
+     *
+     * Аргументы определяемые:
+     *     y - {широта, долгота}
+     *
+     * Возвращает:
+     *     длину вектора
+     */
+    double CartToSpher(double x[], double y[])
+    {
+      double p;
+
+      p = hypot(x[0], x[1]);
+      y[1] = atan2(x[1], x[0]);
+      y[0] = atan2(x[2], p);
+
+      return hypot(p, x[2]);
+    }
+
+
+
+
 };
 
 #endif // MAINWINDOW_H
