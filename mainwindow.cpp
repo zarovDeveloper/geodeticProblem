@@ -54,6 +54,8 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
 {
     //find the variables
     double latB, lonB; //coordinates of point B (x, y)
+    double angle;
+
     double latA = ui->lineEdit_directGD_inputAx->text().toDouble(); //coordinates of point A (x)
     double lonA = ui->lineEdit_directGD_inputAy->text().toDouble(); //coordinates of point A (y)
 
@@ -65,52 +67,67 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
 
     //check radioButton
     int scale;
-    if (ui->radioButton_directGD_inputHorizSpacing->isChecked())
+    if (!ui->radioButton_directGD_inputHorizSpacing->isChecked())
+    {
         scale = ui->lineEdit_directGD_inputScale->text().toInt(); //scale
+        distance = distance * scale / 100;
+    }
     else
         scale = 100;
 
 
-    if (QString::number(scale).right(2) != "00")
-    {
-        int scaleRound = 0;
+    switch (ui->comboBox_directGD->currentIndex())
+    {//selected area
+    case 0:
+    {//plane
+        //angle
+        angleOfDMS(degrees, minutes, seconds, angle);
 
-        scaleRound = (scale / 100 + (scale % 100 >= 50 ? 1 : 0)) * 100;
-
-        if (scaleRound == 0) scaleRound = 100; //round scale
-
-        //Error
-        QMessageBox msgBox;
-        msgBox.setWindowTitle("Блокнот");
-        msgBox.setText("Масштаб неккоректный. Хотите округлить до: " + QString::number(scaleRound) + "?");
-        msgBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-        msgBox.setDefaultButton(QMessageBox::Yes);
-        int res = msgBox.exec();
-        switch (res)
-        {//какую кнопку нажал юзер
-        case QMessageBox::Yes:
-        {
-            ui->lineEdit_directGD_inputScale->setText(QString::number(scaleRound)); //change scale
-            on_pushButton_directGD_solve_clicked();
-            break;
-        }
-        case QMessageBox::No:
-        {
-            break;
-        }
-        }
-    }
-    else
-    {
         //solve directGD
-        directGD_solve(latA, lonA, degrees, minutes, seconds, distance, scale, latB, lonB);
+        directGDPlane(latA, lonA, angle, distance, latB, lonB);
 
         //rounding to 2 digits after
         ui->lineEdit_resDirectGD_Bx->setText(QString::number(latB, 'f', 2));
         ui->lineEdit_resDirectGD_By->setText(QString::number(lonB, 'f', 2));
 
         go_next();
+
+        break;
     }
+    case 1:
+    {
+        break;
+    }
+    case 2:
+    {//sphere
+        angleOfDMS(degrees, minutes, seconds, angle);
+
+        directGDSphera(latA, lonA, angle, distance, latB, lonB);
+
+        ui->lineEdit_resDirectGD_Bx->setText(QString::number(latB));
+        ui->lineEdit_resDirectGD_By->setText(QString::number(lonB));
+        //        double reverseAngle;
+        //        double angle;
+        //        double pt1[2], pt2[2];
+
+        //        angleImDMS(degrees, minutes, seconds, angle);
+
+        //        pt1[0] = Radians(latA);
+        //        pt1[1] = Radians(lonA);
+        //        sphereDirect(pt1, Radians(angle), distance / A_E, pt2);
+
+        //        //rounding to 2 digits after
+        //        ui->lineEdit_resDirectGD_Bx->setText(QString::number(Degrees(pt2[0])));
+        //        ui->lineEdit_resDirectGD_By->setText(QString::number(Degrees(pt2[1])));
+        ////        ui->lineEdit_resDirectGD_reverseAngle->setText(QString::number(reverseAngle));
+
+        go_next();
+
+        break;
+    }
+    }
+
+
 }
 
 //page "directGDres"
@@ -125,39 +142,67 @@ void MainWindow::on_pushButton_resDirectGD_back_clicked() //button "Назад" 
     go_back();
 }
 
-//page "reverseGD"
+//page "inverseGD"
 
-void MainWindow::on_pushButton_reverseGD_back_clicked() //button "Назад" in reverseGD
+void MainWindow::on_pushButton_inverseGD_back_clicked() //button "Назад" in reverseGD
 {
     go_main();
 }
 
-void MainWindow::on_pushButton_reverseGD_solve_clicked() //button "Решить" in reverseGD
+void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить" in reverseGD
 {
-    double distance, degrees, minutes, seconds;
-    double latA = ui->lineEdit_reversGD_inputAx->text().toDouble(); //coordinates of point A (x)
-    double lonA = ui->lineEdit_reversGD_inputAy->text().toDouble(); //coordinates of point A (y)
-    double latB = ui->lineEdit_reversGD_inputBx->text().toDouble(); //coordinates of point A (x)
-    double lonB = ui->lineEdit_reversGD_inputBy->text().toDouble(); //coordinates of point A (y)
+    double distance, degrees, minutes, seconds, angle;
+    double lat[2], lon[2];
+    lat[0] = ui->lineEdit_inverseGD_inputAx->text().toDouble(); //coordinates of point A (x)
+    lon[0] = ui->lineEdit_inverseGD_inputAy->text().toDouble(); //coordinates of point A (y)
+    lat[1] = ui->lineEdit_inverseGD_inputBx->text().toDouble(); //coordinates of point A (x)
+    lon[1] = ui->lineEdit_inverseGD_inputBy->text().toDouble(); //coordinates of point A (y)
 
-    reverseGD_solve(latA, lonA, latB, lonB, distance, degrees, minutes, seconds); //solve
+    switch (ui->comboBox_inverseGD->currentIndex())
+    {//selected area
+    case 0:
+    {//plane
+        //solve invresGD
+        inversGDPlane(lat, lon, angle, distance);
 
-    ui->lineEdit_resReverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
-    ui->spinBox_resReverseGD_Angle_degrees->setValue(int(degrees));
-    ui->spinBox_resReverseGD_Angle_minutes->setValue(int(minutes));
-    ui->spinBox_resReverseGD_Angle_seconds->setValue(int(seconds));
+        angleFromDecimalAngle(angle, degrees, minutes, seconds);
+        if (degrees < 0) degrees += 360;
 
-    go_next();
+        ui->lineEdit_resInverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
+        ui->spinBox_resInverseGD_Angle_degrees->setValue(int(degrees));
+        ui->spinBox_resInverseGD_Angle_minutes->setValue(int(minutes));
+        ui->spinBox_resInverseGD_Angle_seconds->setValue(int(seconds));
+
+        go_next();
+        break;
+    }
+    case 1:
+    {//sphere
+        //solve inversGD
+        inversGDSphera(lat, lon, angle, distance);
+
+        angleFromDecimalAngle(angle, degrees, minutes, seconds);
+        if (degrees < 0) degrees += 360;
+
+        ui->lineEdit_resInverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
+        ui->spinBox_resInverseGD_Angle_degrees->setValue(int(degrees));
+        ui->spinBox_resInverseGD_Angle_minutes->setValue(int(minutes));
+        ui->spinBox_resInverseGD_Angle_seconds->setValue(int(seconds));
+
+        go_next();
+        break;
+    }
+    }
 }
 
-//page "resReversGD"
+//page "resInverseGD"
 
-void MainWindow::on_pushButton_resReverseGD_back_clicked() //button "Назад" in resReverseGD
+void MainWindow::on_pushButton_resInverseGD_back_clicked() //button "Назад" in resReverseGD
 {
     go_back();
 }
 
-void MainWindow::on_pushButton_resReverseGD_goToMain_clicked() //button "На главную страницу" in resReverseGD
+void MainWindow::on_pushButton_resInverseGD_goToMain_clicked() //button "На главную страницу" in resReverseGD
 {
     go_main();
 }
@@ -198,14 +243,14 @@ void MainWindow::setValidator() //change validator in lineEdit
     ui->lineEdit_directGD_inputAx->setValidator(validatorDoubleMinus);
     ui->lineEdit_directGD_inputAy->setValidator(validatorDoubleMinus);
     //reverseGD
-    ui->lineEdit_reversGD_inputAx->setValidator(validatorDoubleMinus);
-    ui->lineEdit_reversGD_inputAy->setValidator(validatorDoubleMinus);
-    ui->lineEdit_reversGD_inputBx->setValidator(validatorDoubleMinus);
-    ui->lineEdit_reversGD_inputBy->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputAx->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputAy->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputBx->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputBy->setValidator(validatorDoubleMinus);
 
-    ui->spinBox_resReverseGD_Angle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_resReverseGD_Angle_minutes->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_resReverseGD_Angle_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_minutes->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
     ui->spinBox_directGD_inputAngle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->spinBox_directGD_inputAngle_degrees->setRange(0, 360); //the range of acceptable values
@@ -240,39 +285,39 @@ void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1
 
 //dynamic replace "," on "."
 
-void MainWindow::on_lineEdit_reversGD_inputAx_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_inverseGD_inputAx_textChanged(const QString &arg1)
 {
     if (arg1.contains(","))
     {
         QString str = arg1;
-        ui->lineEdit_reversGD_inputAx->setText(str.replace(",", "."));
+        ui->lineEdit_inverseGD_inputAx->setText(str.replace(",", "."));
     }
 }
 
-void MainWindow::on_lineEdit_reversGD_inputAy_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_inverseGD_inputAy_textChanged(const QString &arg1)
 {
     if (arg1.contains(","))
     {
         QString str = arg1;
-        ui->lineEdit_reversGD_inputAy->setText(str.replace(",", "."));
+        ui->lineEdit_inverseGD_inputAy->setText(str.replace(",", "."));
     }
 }
 
-void MainWindow::on_lineEdit_reversGD_inputBx_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_inverseGD_inputBx_textChanged(const QString &arg1)
 {
     if (arg1.contains(","))
     {
         QString str = arg1;
-        ui->lineEdit_reversGD_inputBx->setText(str.replace(",", "."));
+        ui->lineEdit_inverseGD_inputBx->setText(str.replace(",", "."));
     }
 }
 
-void MainWindow::on_lineEdit_reversGD_inputBy_textChanged(const QString &arg1)
+void MainWindow::on_lineEdit_inverseGD_inputBy_textChanged(const QString &arg1)
 {
     if (arg1.contains(","))
     {
         QString str = arg1;
-        ui->lineEdit_reversGD_inputBy->setText(str.replace(",", "."));
+        ui->lineEdit_inverseGD_inputBy->setText(str.replace(",", "."));
     }
 }
 
@@ -312,7 +357,7 @@ void MainWindow::on_spinBox_directGD_inputAngle_degrees_valueChanged(int arg1)
         ui->spinBox_directGD_inputAngle_minutes->setValue(0);
         ui->spinBox_directGD_inputAngle_minutes->setRange(0, 0);
 
-        ui->spinBox_resReverseGD_Angle_seconds->setValue(0);
+        ui->spinBox_directGD_inputAngle_seconds->setValue(0);
         ui->spinBox_directGD_inputAngle_seconds->setRange(0, 0);
     }
     else {

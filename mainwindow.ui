@@ -150,7 +150,7 @@
        <rect>
         <x>20</x>
         <y>180</y>
-        <width>261</width>
+        <width>321</width>
         <height>31</height>
        </rect>
       </property>
@@ -516,7 +516,7 @@
        <rect>
         <x>20</x>
         <y>280</y>
-        <width>381</width>
+        <width>441</width>
         <height>71</height>
        </rect>
       </property>
@@ -569,18 +569,23 @@
        <string>м</string>
       </property>
      </widget>
-     <widget class="QComboBox" name="comboBox">
+     <widget class="QComboBox" name="comboBox_directGD">
       <property name="geometry">
        <rect>
-        <x>540</x>
+        <x>550</x>
         <y>30</y>
-        <width>151</width>
-        <height>31</height>
+        <width>181</width>
+        <height>41</height>
        </rect>
       </property>
       <item>
        <property name="text">
         <string>Плоскость</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Плоскость + h</string>
        </property>
       </item>
       <item>
@@ -703,7 +708,7 @@
       <property name="geometry">
        <rect>
         <x>340</x>
-        <y>290</y>
+        <y>360</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -721,7 +726,7 @@
       <property name="geometry">
        <rect>
         <x>190</x>
-        <y>290</y>
+        <y>360</y>
         <width>131</width>
         <height>51</height>
        </rect>
@@ -772,8 +777,8 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="inputReversGD_page">
-     <widget class="QLabel" name="label_reversGD_inputAx">
+    <widget class="QWidget" name="inputInverseGD_page">
+     <widget class="QLabel" name="label_inverseGD_inputAx">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -791,7 +796,7 @@
        <string>X:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_reverseGD_back">
+     <widget class="QPushButton" name="pushButton_inverseGD_back">
       <property name="geometry">
        <rect>
         <x>450</x>
@@ -809,7 +814,7 @@
        <string>Назад</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_reversGD_inputAx">
+     <widget class="QLineEdit" name="lineEdit_inverseGD_inputAx">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -825,7 +830,7 @@
        <string>0.00</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reversGD_inputAy">
+     <widget class="QLabel" name="label_inverseGD_inputAy">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -843,7 +848,7 @@
        <string>Y:</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_reverseGD_solve">
+     <widget class="QPushButton" name="pushButton_inverseGD_solve">
       <property name="geometry">
        <rect>
         <x>600</x>
@@ -861,7 +866,7 @@
        <string>Расчитать</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reversGD_inputA">
+     <widget class="QLabel" name="label_inverseGD_inputA">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -879,7 +884,7 @@
        <string>Введите значение координаты A:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_reversGD_inputAy">
+     <widget class="QLineEdit" name="lineEdit_inverseGD_inputAy">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -895,7 +900,7 @@
        <string>0.00</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reversGD_inputBx">
+     <widget class="QLabel" name="label_inverseGD_inputBx">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -913,7 +918,7 @@
        <string>X:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reversGD_inputB">
+     <widget class="QLabel" name="label_inverseGD_inputB">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -931,7 +936,7 @@
        <string>Введите значение координаты B:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_reversGD_inputBx">
+     <widget class="QLineEdit" name="lineEdit_inverseGD_inputBx">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -947,7 +952,7 @@
        <string>0.00</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_directGD_inputBy">
+     <widget class="QLabel" name="label_inverseGD_inputBy">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -965,7 +970,7 @@
        <string>Y:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_reversGD_inputBy">
+     <widget class="QLineEdit" name="lineEdit_inverseGD_inputBy">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -981,7 +986,7 @@
        <string>0.00</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reverseGD_m">
+     <widget class="QLabel" name="label_inverseGD_m">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -999,7 +1004,7 @@
        <string>м</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reverseGD_m1">
+     <widget class="QLabel" name="label_inverseGD_m1">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -1017,7 +1022,7 @@
        <string>м</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reverseGD_m2">
+     <widget class="QLabel" name="label_inverseGD_m2">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -1035,7 +1040,7 @@
        <string>м</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_reverseGD_m3">
+     <widget class="QLabel" name="label_inverseGD_m3">
       <property name="geometry">
        <rect>
         <x>230</x>
@@ -1053,9 +1058,29 @@
        <string>м</string>
       </property>
      </widget>
+     <widget class="QComboBox" name="comboBox_inverseGD">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>30</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Плоскость</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Сфера</string>
+       </property>
+      </item>
+     </widget>
     </widget>
-    <widget class="QWidget" name="resReversGD_page">
-     <widget class="QLabel" name="label_resReverseGD_minutes">
+    <widget class="QWidget" name="resInverseGD_page">
+     <widget class="QLabel" name="label_resInverseGD_minutes">
       <property name="geometry">
        <rect>
         <x>310</x>
@@ -1073,7 +1098,7 @@
        <string> '</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_resReverseGD_Angle_degrees">
+     <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_degrees">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -1107,7 +1132,7 @@
        <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReverseGD_AngleA">
+     <widget class="QLabel" name="label_resInverseGD_AngleA">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1125,7 +1150,7 @@
        <string>α:</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_resReverseGD_Angle_minutes">
+     <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_minutes">
       <property name="geometry">
        <rect>
         <x>170</x>
@@ -1159,7 +1184,7 @@
        <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReverse_degree">
+     <widget class="QLabel" name="label_resInverse_degree">
       <property name="geometry">
        <rect>
         <x>150</x>
@@ -1172,12 +1197,12 @@
        <string>°</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReverseGD_angle">
+     <widget class="QLabel" name="label_resInverseGD_angle">
       <property name="geometry">
        <rect>
         <x>30</x>
         <y>40</y>
-        <width>251</width>
+        <width>311</width>
         <height>31</height>
        </rect>
       </property>
@@ -1190,7 +1215,7 @@
        <string>Диррекционный угол:</string>
       </property>
      </widget>
-     <widget class="QSpinBox" name="spinBox_resReverseGD_Angle_seconds">
+     <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_seconds">
       <property name="geometry">
        <rect>
         <x>330</x>
@@ -1224,7 +1249,7 @@
        <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReverseGD_seconds">
+     <widget class="QLabel" name="label_resInverseGD_seconds">
       <property name="geometry">
        <rect>
         <x>480</x>
@@ -1242,7 +1267,7 @@
        <string>&quot;</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReversGD_L">
+     <widget class="QLabel" name="label_resInverseGD_L">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1260,7 +1285,7 @@
        <string>L:</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReversGD_outputL">
+     <widget class="QLabel" name="label_resInverseGD_outputL">
       <property name="geometry">
        <rect>
         <x>30</x>
@@ -1278,7 +1303,7 @@
        <string>Горизонтальное проложение:</string>
       </property>
      </widget>
-     <widget class="QLineEdit" name="lineEdit_resReverseGD_outputL">
+     <widget class="QLineEdit" name="lineEdit_resInverseGD_outputL">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -1294,7 +1319,7 @@
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_resReverseGD_back">
+     <widget class="QPushButton" name="pushButton_resInverseGD_back">
       <property name="geometry">
        <rect>
         <x>210</x>
@@ -1312,7 +1337,7 @@
        <string>Назад</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_resReverseGD_goToMain">
+     <widget class="QPushButton" name="pushButton_resInverseGD_goToMain">
       <property name="geometry">
        <rect>
         <x>360</x>
@@ -1330,7 +1355,7 @@
        <string>На главную страницу</string>
       </property>
      </widget>
-     <widget class="QLabel" name="label_resReverseGD_m">
+     <widget class="QLabel" name="label_resInverseGD_m">
       <property name="geometry">
        <rect>
         <x>230</x>
