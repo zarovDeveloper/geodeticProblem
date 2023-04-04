@@ -76,6 +76,16 @@ private slots:
 
     void on_radioButton_directGD_inputHorizSpacing_clicked();
 
+    void on_comboBox_directGD_currentIndexChanged(int index);
+
+    void on_spinBox_directGD_inputAngle_degreesH_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputAngle_minutesH_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputAngle_secondsH_valueChanged(int arg1);
+
+    void on_comboBox_inverseGD_currentIndexChanged(int index);
+
 private:
     Ui::MainWindow *ui;
 

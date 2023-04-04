@@ -9,19 +9,6 @@ geodeticProblem::geodeticProblem()
 
 //direct geodesic problem in Plane, Sphere, Geod
 
-void geodeticProblem::directGDSphera(double latA, double lonA, double angle, double distance, double &latB, double &lonB)
-{
-    double pt1[2], pt2[2];
-
-    pt1[0] = Radians(latA);
-    pt1[1] = Radians(lonA);
-    SphereDirect(pt1, Radians(angle), distance / A_E, pt2);
-    latB = Degrees(pt2[0]);
-    lonB = Degrees(pt2[1]);
-}
-
-
-
 void geodeticProblem::directGDPlane(double latA, double lonA, double angle, double distance, double &latB, double &lonB)
 {
     double radians = angle * M_PI / 180;
@@ -31,6 +18,30 @@ void geodeticProblem::directGDPlane(double latA, double lonA, double angle, doub
 
     latB = latA + deltaX;
     lonB = lonA + deltaY;
+}
+
+void geodeticProblem::directGDPlaneH(double latA, double lonA, double AH, double angleDir, double angleOrent, double distance, double &latB, double &lonB, double &BH)
+{
+    double radians = angleDir * M_PI / 180;
+
+    double deltaX = distance * cos(radians);
+    double deltaY = distance * sin(radians);
+
+    latB = latA + deltaX;
+    lonB = lonA + deltaY;
+
+    BH = AH - (distance * cos(angleOrent));
+}
+
+void geodeticProblem::directGDSphera(double latA, double lonA, double angle, double distance, double &latB, double &lonB)
+{
+    double pt1[2], pt2[2];
+
+    pt1[0] = Radians(latA);
+    pt1[1] = Radians(lonA);
+    SphereDirect(pt1, Radians(angle), distance / A_E, pt2);
+    latB = Degrees(pt2[0]);
+    lonB = Degrees(pt2[1]);
 }
 
 void geodeticProblem::directGDGeod(double latA, double lonA, double angl, double s, double LSAE, double EEF, double EES, double &latB, double &lonB, double &angleRevers)
@@ -115,7 +126,6 @@ void geodeticProblem::directGDGeod(double latA, double lonA, double angl, double
 }
 
 
-
 //invers geodesic problem in Plane, Sphere, Geod
 
 
@@ -131,6 +141,23 @@ void geodeticProblem::inversGDPlane(double *lat, double *lon, double &angle, dou
     if (deltaX < 0 and deltaY > 0) angle -= 180;
     else if (deltaX < 0 and deltaY < 0) angle += 180;
     else if (deltaX > 0 and deltaY < 0) return;
+}
+
+void geodeticProblem::inversGDPlaneH(double *lat, double *lon, double *height, double &angleDir, double &distance, double &angleOrent)
+{
+    double deltaX = lat[1] - lat[0];
+    double deltaY = lon[1] - lon[0];
+
+    angleDir = (atan(deltaY / deltaX) * 180 / M_PI);
+
+    distance = sqrt(deltaX*deltaX + deltaY*deltaY);
+
+    if (deltaX < 0 and deltaY > 0) angleDir -= 180;
+    else if (deltaX < 0 and deltaY < 0) angleDir += 180;
+    else if (deltaX > 0 and deltaY < 0) return;
+
+    angleOrent = acos(abs(height[0] - height[1]) / distance);
+    angleOrent = Degrees(angleOrent);
 }
 
 void geodeticProblem::inversGDSphera(double *lat, double *lon, double &angle, double &distance)

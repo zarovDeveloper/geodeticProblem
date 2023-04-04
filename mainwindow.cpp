@@ -95,7 +95,30 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
         break;
     }
     case 1:
-    {
+    {//plane with height
+
+        double height = ui->lineEdit_directGD_inputAh->text().toDouble();
+
+        double angleH, heightB;
+        double degreesH = ui->spinBox_directGD_inputAngle_degreesH->text().toDouble(); //angle degrees
+        double minutesH = ui->spinBox_directGD_inputAngle_minutesH->text().toDouble(); //angle minutes
+        double secondsH = ui->spinBox_directGD_inputAngle_secondsH->text().toDouble(); //angle seconds
+
+        //angle
+        angleOfDMS(degrees, minutes, seconds, angle);
+        //angleH
+        angleOfDMS(degreesH, minutesH, secondsH, angleH);
+
+        //solve directGDwithH
+        directGDPlaneH(latA, lonA, height, angle, angleH, distance, latB, lonB, heightB);
+
+        //rounding to 2 digits after
+        ui->lineEdit_resDirectGD_Bx->setText(QString::number(latB, 'f', 2));
+        ui->lineEdit_resDirectGD_By->setText(QString::number(lonB, 'f', 2));
+        ui->lineEdit_resDirectGD_BH->setText(QString::number(heightB, 'f', 2));
+
+        go_next();
+
         break;
     }
     case 2:
@@ -177,9 +200,14 @@ void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить"
         break;
     }
     case 1:
-    {//sphere
+    {//plane with height
+
+        double height[2], angleOrent;
+        height[0] = ui->lineEdit_inverseGD_inputAH->text().toDouble();
+        height[1] = ui->lineEdit_inverseGD_inputBH->text().toDouble();
+
         //solve inversGD
-        inversGDSphera(lat, lon, angle, distance);
+        inversGDPlaneH(lat, lon, height, angle, distance, angleOrent);
 
         angleFromDecimalAngle(angle, degrees, minutes, seconds);
         if (degrees < 0) degrees += 360;
@@ -188,6 +216,11 @@ void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить"
         ui->spinBox_resInverseGD_Angle_degrees->setValue(int(degrees));
         ui->spinBox_resInverseGD_Angle_minutes->setValue(int(minutes));
         ui->spinBox_resInverseGD_Angle_seconds->setValue(int(seconds));
+
+        angleFromDecimalAngle(angleOrent, degrees, minutes, seconds);
+        ui->spinBox_resInverseGD_Angle_degreesH->setValue(int(degrees));
+        ui->spinBox_resInverseGD_Angle_minutesH->setValue(int(minutes));
+        ui->spinBox_resInverseGD_Angle_secondsH->setValue(int(seconds));
 
         go_next();
         break;
@@ -234,6 +267,7 @@ void MainWindow::setValidator() //change validator in lineEdit
     QDoubleValidator *validatorDouble = new QDoubleValidator(0.0, qInf(), 2, this);
     validatorDouble->setLocale(QLocale::English); //separator - point
     ui->lineEdit_directGD_inputL->setValidator(validatorDouble);
+    ui->lineEdit_directGD_inputAh->setValidator(validatorDouble);
     ui->lineEdit_directGD_inputScale->setValidator(validatorDouble);
 
     QDoubleValidator *validatorDoubleMinus = new QDoubleValidator(-qInf(), qInf(), 2, this);
@@ -242,6 +276,10 @@ void MainWindow::setValidator() //change validator in lineEdit
     //directGD
     ui->lineEdit_directGD_inputAx->setValidator(validatorDoubleMinus);
     ui->lineEdit_directGD_inputAy->setValidator(validatorDoubleMinus);
+    ui->lineEdit_directGD_inputAh->setVisible(false);
+    ui->label_directGD_inputH->setVisible(false);
+    ui->label_directGD_m_h->setVisible(false);
+
     //reverseGD
     ui->lineEdit_inverseGD_inputAx->setValidator(validatorDoubleMinus);
     ui->lineEdit_inverseGD_inputAy->setValidator(validatorDoubleMinus);
@@ -260,9 +298,53 @@ void MainWindow::setValidator() //change validator in lineEdit
 
     ui->spinBox_directGD_inputAngle_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->spinBox_directGD_inputAngle_seconds->setRange(0, 60); //the range of acceptable values
+
+    ui->spinBox_directGD_inputAngle_degreesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_directGD_inputAngle_degrees->setRange(0, 360); //the range of acceptable values
+
+    ui->spinBox_directGD_inputAngle_minutesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_directGD_inputAngle_minutes->setRange(0, 60); //the range of acceptable values
+
+    ui->spinBox_directGD_inputAngle_secondsH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_directGD_inputAngle_seconds->setRange(0, 60); //the range of acceptable values
+
+    ui->lineEdit_directGD_inputAh->setVisible(false);
+    ui->label_directGD_inputH->setVisible(false);
+    ui->label_directGD_m_h->setVisible(false);
+    ui->label_directGD_AngleH->setVisible(false);
+    ui->label__directGD_degree_H->setVisible(false);
+    ui->label_directGD_minutes_H->setVisible(false);
+    ui->label_directGD_seconds_H->setVisible(false);
+    ui->label_directGD_inputAngle_H->setVisible(false);
+    ui->spinBox_directGD_inputAngle_degreesH->setVisible(false);
+    ui->spinBox_directGD_inputAngle_degreesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_directGD_inputAngle_minutesH->setVisible(false);
+    ui->spinBox_directGD_inputAngle_minutesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_directGD_inputAngle_secondsH->setVisible(false);
+    ui->spinBox_directGD_inputAngle_secondsH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    ui->label_resDirectGD_BH->setVisible(false);
+    ui->label_resDirectGD_coordB_H->setVisible(false);
+    ui->label_resDirectGD_m_H->setVisible(false);
+    ui->lineEdit_resDirectGD_BH->setVisible(false);
+
+    ui->label_inverseGD_m_h->setVisible(false);
+    ui->label_inverseGD_m_h_2->setVisible(false);
+    ui->label_inverseGD_inputAH->setVisible(false);
+    ui->label_inverseGD_inputBH->setVisible(false);
+    ui->lineEdit_inverseGD_inputAH->setVisible(false);
+    ui->lineEdit_inverseGD_inputBH->setVisible(false);
+    ui->label_resInverseGD_AngleH->setVisible(false);
+    ui->label_resInverse_degreeH->setVisible(false);
+    ui->label_resInverseGD_angleH->setVisible(false);
+    ui->label_resInverseGD_minutesH->setVisible(false);
+    ui->label_resInverseGD_secondsH->setVisible(false);
+    ui->spinBox_resInverseGD_Angle_degreesH->setVisible(false);
+    ui->spinBox_resInverseGD_Angle_minutesH->setVisible(false);
+    ui->spinBox_resInverseGD_Angle_secondsH->setVisible(false);
 }
 
-void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1) //dynamic zoom change
+void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1) //dynamic scale change
 {
     if ((arg1.right(2) != "00") or !(arg1.toDouble() > 0))
     {//if arg1 not ending on 00 or arg1 - 0
@@ -384,6 +466,39 @@ void MainWindow::on_spinBox_directGD_inputAngle_seconds_valueChanged(int arg1)
     }
 }
 
+void MainWindow::on_spinBox_directGD_inputAngle_degreesH_valueChanged(int arg1)
+{
+    if (arg1 == 360)
+    {
+        ui->spinBox_directGD_inputAngle_minutesH->setValue(0);
+        ui->spinBox_directGD_inputAngle_minutesH->setRange(0, 0);
+
+        ui->spinBox_directGD_inputAngle_secondsH->setValue(0);
+        ui->spinBox_directGD_inputAngle_secondsH->setRange(0, 0);
+    }
+    else {
+        ui->spinBox_directGD_inputAngle_minutesH->setRange(0, 60);
+        ui->spinBox_directGD_inputAngle_secondsH->setRange(0, 60);
+    }
+}
+
+void MainWindow::on_spinBox_directGD_inputAngle_minutesH_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_directGD_inputAngle_degreesH->setValue(ui->spinBox_directGD_inputAngle_degreesH->value() + 1);
+        ui->spinBox_directGD_inputAngle_minutesH->setValue(0);
+    }
+}
+
+void MainWindow::on_spinBox_directGD_inputAngle_secondsH_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_directGD_inputAngle_minutesH->setValue(ui->spinBox_directGD_inputAngle_minutesH->value() + 1);
+        ui->spinBox_directGD_inputAngle_secondsH->setValue(0);
+    }
+}
 
 //choice of option L
 
@@ -400,4 +515,85 @@ void MainWindow::on_radioButton_directGD_inputHorizSpacing_clicked()
     ui->label_directGD_m_in_L->setVisible(true);
     ui->label_directGD_m_scale->setVisible(false);
     ui->lineEdit_directGD_inputScale->setVisible(false);
+}
+
+
+//comboBox on direct page
+
+void MainWindow::on_comboBox_directGD_currentIndexChanged(int index)
+{
+    if (index == 1)
+    {//choose "Плоскость с высотой"
+        ui->lineEdit_directGD_inputAh->setVisible(true);
+        ui->label_directGD_inputH->setVisible(true);
+        ui->label_directGD_m_h->setVisible(true);
+        ui->label_directGD_AngleH->setVisible(true);
+        ui->label__directGD_degree_H->setVisible(true);
+        ui->label_directGD_minutes_H->setVisible(true);
+        ui->label_directGD_seconds_H->setVisible(true);
+        ui->label_directGD_inputAngle_H->setVisible(true);
+        ui->spinBox_directGD_inputAngle_degreesH->setVisible(true);
+        ui->spinBox_directGD_inputAngle_minutesH->setVisible(true);
+        ui->spinBox_directGD_inputAngle_secondsH->setVisible(true);
+        ui->label_resDirectGD_BH->setVisible(true);
+        ui->label_resDirectGD_coordB_H->setVisible(true);
+        ui->label_resDirectGD_m_H->setVisible(true);
+        ui->lineEdit_resDirectGD_BH->setVisible(true);
+    }
+    else
+    {
+        ui->lineEdit_directGD_inputAh->setVisible(false);
+        ui->label_directGD_inputH->setVisible(false);
+        ui->label_directGD_m_h->setVisible(false);
+        ui->label_directGD_AngleH->setVisible(false);
+        ui->label__directGD_degree_H->setVisible(false);
+        ui->label_directGD_minutes_H->setVisible(false);
+        ui->label_directGD_seconds_H->setVisible(false);
+        ui->label_directGD_inputAngle_H->setVisible(false);
+        ui->spinBox_directGD_inputAngle_degreesH->setVisible(false);
+        ui->spinBox_directGD_inputAngle_minutesH->setVisible(false);
+        ui->spinBox_directGD_inputAngle_secondsH->setVisible(false);
+        ui->label_resDirectGD_BH->setVisible(false);
+        ui->label_resDirectGD_coordB_H->setVisible(false);
+        ui->label_resDirectGD_m_H->setVisible(false);
+        ui->lineEdit_resDirectGD_BH->setVisible(false);
+    }
+}
+
+void MainWindow::on_comboBox_inverseGD_currentIndexChanged(int index)
+{
+    if (index == 1)
+    {//choose "Плоскость с высотой"
+        ui->label_inverseGD_m_h->setVisible(true);
+        ui->label_inverseGD_m_h_2->setVisible(true);
+        ui->label_inverseGD_inputAH->setVisible(true);
+        ui->label_inverseGD_inputBH->setVisible(true);
+        ui->lineEdit_inverseGD_inputAH->setVisible(true);
+        ui->lineEdit_inverseGD_inputBH->setVisible(true);
+        ui->label_resInverseGD_AngleH->setVisible(true);
+        ui->label_resInverse_degreeH->setVisible(true);
+        ui->label_resInverseGD_angleH->setVisible(true);
+        ui->label_resInverseGD_minutesH->setVisible(true);
+        ui->label_resInverseGD_secondsH->setVisible(true);
+        ui->spinBox_resInverseGD_Angle_degreesH->setVisible(true);
+        ui->spinBox_resInverseGD_Angle_minutesH->setVisible(true);
+        ui->spinBox_resInverseGD_Angle_secondsH->setVisible(true);
+    }
+    else
+    {
+        ui->label_inverseGD_m_h->setVisible(false);
+        ui->label_inverseGD_m_h_2->setVisible(false);
+        ui->label_inverseGD_inputAH->setVisible(false);
+        ui->label_inverseGD_inputBH->setVisible(false);
+        ui->lineEdit_inverseGD_inputAH->setVisible(false);
+        ui->lineEdit_inverseGD_inputBH->setVisible(false);
+        ui->label_resInverseGD_AngleH->setVisible(false);
+        ui->label_resInverse_degreeH->setVisible(false);
+        ui->label_resInverseGD_angleH->setVisible(false);
+        ui->label_resInverseGD_minutesH->setVisible(false);
+        ui->label_resInverseGD_secondsH->setVisible(false);
+        ui->spinBox_resInverseGD_Angle_degreesH->setVisible(false);
+        ui->spinBox_resInverseGD_Angle_minutesH->setVisible(false);
+        ui->spinBox_resInverseGD_Angle_secondsH->setVisible(false);
+    }
 }

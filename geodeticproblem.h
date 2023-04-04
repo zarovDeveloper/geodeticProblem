@@ -19,13 +19,15 @@ public:
 
     void directGDPlane(double latA, double lonA, double angle, double distance, double &latB, double &lonB);
 
+    void directGDPlaneH(double latA, double lonA, double AH, double angleDir, double angleOrent, double distance, double &latB, double &lonB, double &BH);
+
     void directGDSphera(double latA, double lonA, double angle, double distance, double &latB, double &lonB);
 
     void inversGDSphera(double lat[2], double lon[2], double &angle, double &distance);
 
     void inversGDPlane(double lat[2], double lon[2], double &angle, double &distance);
 
-    void directGDPlaneH(double latA, double lonA, double height, double angle, double distance, double &latB, double &lonB);
+    void inversGDPlaneH(double lat[2], double lon[2], double height[2], double &angleDir, double &distance, double &angleOrent);
 
 private:
 
