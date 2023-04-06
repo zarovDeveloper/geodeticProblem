@@ -267,7 +267,6 @@ void MainWindow::setValidator() //change validator in lineEdit
     QDoubleValidator *validatorDouble = new QDoubleValidator(0.0, qInf(), 2, this);
     validatorDouble->setLocale(QLocale::English); //separator - point
     ui->lineEdit_directGD_inputL->setValidator(validatorDouble);
-    ui->lineEdit_directGD_inputAh->setValidator(validatorDouble);
     ui->lineEdit_directGD_inputScale->setValidator(validatorDouble);
 
     QDoubleValidator *validatorDoubleMinus = new QDoubleValidator(-qInf(), qInf(), 2, this);
@@ -276,19 +275,12 @@ void MainWindow::setValidator() //change validator in lineEdit
     //directGD
     ui->lineEdit_directGD_inputAx->setValidator(validatorDoubleMinus);
     ui->lineEdit_directGD_inputAy->setValidator(validatorDoubleMinus);
+    ui->lineEdit_directGD_inputAh->setValidator(validatorDoubleMinus);
+
+
     ui->lineEdit_directGD_inputAh->setVisible(false);
     ui->label_directGD_inputH->setVisible(false);
     ui->label_directGD_m_h->setVisible(false);
-
-    //reverseGD
-    ui->lineEdit_inverseGD_inputAx->setValidator(validatorDoubleMinus);
-    ui->lineEdit_inverseGD_inputAy->setValidator(validatorDoubleMinus);
-    ui->lineEdit_inverseGD_inputBx->setValidator(validatorDoubleMinus);
-    ui->lineEdit_inverseGD_inputBy->setValidator(validatorDoubleMinus);
-
-    ui->spinBox_resInverseGD_Angle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_resInverseGD_Angle_minutes->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_resInverseGD_Angle_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
     ui->spinBox_directGD_inputAngle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->spinBox_directGD_inputAngle_degrees->setRange(0, 360); //the range of acceptable values
@@ -300,19 +292,19 @@ void MainWindow::setValidator() //change validator in lineEdit
     ui->spinBox_directGD_inputAngle_seconds->setRange(0, 60); //the range of acceptable values
 
     ui->spinBox_directGD_inputAngle_degreesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_directGD_inputAngle_degrees->setRange(0, 360); //the range of acceptable values
+    ui->spinBox_directGD_inputAngle_degreesH->setRange(-90, 90); //the range of acceptable values
 
     ui->spinBox_directGD_inputAngle_minutesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_directGD_inputAngle_minutes->setRange(0, 60); //the range of acceptable values
+    ui->spinBox_directGD_inputAngle_minutesH->setRange(0, 60); //the range of acceptable values
 
     ui->spinBox_directGD_inputAngle_secondsH->setButtonSymbols(QAbstractSpinBox::NoButtons);
-    ui->spinBox_directGD_inputAngle_seconds->setRange(0, 60); //the range of acceptable values
+    ui->spinBox_directGD_inputAngle_secondsH->setRange(0, 60); //the range of acceptable values
 
     ui->lineEdit_directGD_inputAh->setVisible(false);
     ui->label_directGD_inputH->setVisible(false);
     ui->label_directGD_m_h->setVisible(false);
     ui->label_directGD_AngleH->setVisible(false);
-    ui->label__directGD_degree_H->setVisible(false);
+    ui->label_directGD_degree_H->setVisible(false);
     ui->label_directGD_minutes_H->setVisible(false);
     ui->label_directGD_seconds_H->setVisible(false);
     ui->label_directGD_inputAngle_H->setVisible(false);
@@ -323,10 +315,20 @@ void MainWindow::setValidator() //change validator in lineEdit
     ui->spinBox_directGD_inputAngle_secondsH->setVisible(false);
     ui->spinBox_directGD_inputAngle_secondsH->setButtonSymbols(QAbstractSpinBox::NoButtons);
 
+    //resDirectGD
+
     ui->label_resDirectGD_BH->setVisible(false);
     ui->label_resDirectGD_coordB_H->setVisible(false);
     ui->label_resDirectGD_m_H->setVisible(false);
     ui->lineEdit_resDirectGD_BH->setVisible(false);
+
+    //inverseGD
+
+    ui->lineEdit_inverseGD_inputAx->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputAy->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputBx->setValidator(validatorDoubleMinus);
+    ui->lineEdit_inverseGD_inputBy->setValidator(validatorDoubleMinus);
+
 
     ui->label_inverseGD_m_h->setVisible(false);
     ui->label_inverseGD_m_h_2->setVisible(false);
@@ -334,6 +336,23 @@ void MainWindow::setValidator() //change validator in lineEdit
     ui->label_inverseGD_inputBH->setVisible(false);
     ui->lineEdit_inverseGD_inputAH->setVisible(false);
     ui->lineEdit_inverseGD_inputBH->setVisible(false);
+
+
+    //resInverseGD
+
+    ui->spinBox_resInverseGD_Angle_degrees->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_minutes->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+    ui->spinBox_resInverseGD_Angle_degreesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_degreesH->setRange(-90, 90);
+
+    ui->spinBox_resInverseGD_Angle_minutesH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_minutesH->setRange(0, 60);
+
+    ui->spinBox_resInverseGD_Angle_secondsH->setButtonSymbols(QAbstractSpinBox::NoButtons);
+    ui->spinBox_resInverseGD_Angle_secondsH->setRange(0, 60);
+
     ui->label_resInverseGD_AngleH->setVisible(false);
     ui->label_resInverse_degreeH->setVisible(false);
     ui->label_resInverseGD_angleH->setVisible(false);
@@ -500,6 +519,25 @@ void MainWindow::on_spinBox_directGD_inputAngle_secondsH_valueChanged(int arg1)
     }
 }
 
+void MainWindow::on_spinBox_resInverseGD_Angle_minutesH_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_resInverseGD_Angle_degreesH->setValue(ui->spinBox_resInverseGD_Angle_degreesH->value() + 1);
+        ui->spinBox_resInverseGD_Angle_minutesH->setValue(0);
+    }
+}
+
+void MainWindow::on_spinBox_resInverseGD_Angle_secondsH_valueChanged(int arg1)
+{
+    if (arg1 == 60)
+    {
+        ui->spinBox_resInverseGD_Angle_minutesH->setValue(ui->spinBox_resInverseGD_Angle_minutesH->value() + 1);
+        ui->spinBox_resInverseGD_Angle_secondsH->setValue(0);
+    }
+}
+
+
 //choice of option L
 
 
@@ -528,7 +566,7 @@ void MainWindow::on_comboBox_directGD_currentIndexChanged(int index)
         ui->label_directGD_inputH->setVisible(true);
         ui->label_directGD_m_h->setVisible(true);
         ui->label_directGD_AngleH->setVisible(true);
-        ui->label__directGD_degree_H->setVisible(true);
+        ui->label_directGD_degree_H->setVisible(true);
         ui->label_directGD_minutes_H->setVisible(true);
         ui->label_directGD_seconds_H->setVisible(true);
         ui->label_directGD_inputAngle_H->setVisible(true);
@@ -546,7 +584,7 @@ void MainWindow::on_comboBox_directGD_currentIndexChanged(int index)
         ui->label_directGD_inputH->setVisible(false);
         ui->label_directGD_m_h->setVisible(false);
         ui->label_directGD_AngleH->setVisible(false);
-        ui->label__directGD_degree_H->setVisible(false);
+        ui->label_directGD_degree_H->setVisible(false);
         ui->label_directGD_minutes_H->setVisible(false);
         ui->label_directGD_seconds_H->setVisible(false);
         ui->label_directGD_inputAngle_H->setVisible(false);

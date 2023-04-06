@@ -86,6 +86,10 @@ private slots:
 
     void on_comboBox_inverseGD_currentIndexChanged(int index);
 
+    void on_spinBox_resInverseGD_Angle_minutesH_valueChanged(int arg1);
+
+    void on_spinBox_resInverseGD_Angle_secondsH_valueChanged(int arg1);
+
 private:
     Ui::MainWindow *ui;
 

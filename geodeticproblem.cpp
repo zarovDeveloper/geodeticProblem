@@ -22,15 +22,13 @@ void geodeticProblem::directGDPlane(double latA, double lonA, double angle, doub
 
 void geodeticProblem::directGDPlaneH(double latA, double lonA, double AH, double angleDir, double angleOrent, double distance, double &latB, double &lonB, double &BH)
 {
-    double radians = angleDir * M_PI / 180;
-
-    double deltaX = distance * cos(radians);
-    double deltaY = distance * sin(radians);
+    double deltaX = distance * cos(Radians(angleDir));
+    double deltaY = distance * sin(Radians(angleDir));
 
     latB = latA + deltaX;
     lonB = lonA + deltaY;
 
-    BH = AH - (distance * cos(angleOrent));
+    BH = AH + distance * sin(Radians(angleOrent));
 }
 
 void geodeticProblem::directGDSphera(double latA, double lonA, double angle, double distance, double &latB, double &lonB)
@@ -156,7 +154,7 @@ void geodeticProblem::inversGDPlaneH(double *lat, double *lon, double *height, d
     else if (deltaX < 0 and deltaY < 0) angleDir += 180;
     else if (deltaX > 0 and deltaY < 0) return;
 
-    angleOrent = acos(abs(height[0] - height[1]) / distance);
+    angleOrent = asin((height[1] - height[0]) / distance);
     angleOrent = Degrees(angleOrent);
 }
 
