@@ -5,7 +5,7 @@ using namespace std;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow) //constructor
 {
     ui->setupUi(this);
 
@@ -65,10 +65,10 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
 
     double distance = ui->lineEdit_directGD_inputL->text().toDouble(); //distance in sm
 
-    //check radioButton
+    //check radioButton on scale/distance
     int scale;
     if (!ui->radioButton_directGD_inputHorizSpacing->isChecked())
-    {
+    {//if need scale
         scale = ui->lineEdit_directGD_inputScale->text().toInt(); //scale
         distance = distance * scale / 100;
     }
@@ -95,11 +95,11 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
         break;
     }
     case 1:
-    {//plane with height
-
-        double height = ui->lineEdit_directGD_inputAh->text().toDouble();
-
+    {//plane height
+        //new data
         double angleH, heightB;
+        double height = ui->lineEdit_directGD_inputAh->text().toDouble(); //height point A
+
         double degreesH = ui->spinBox_directGD_inputAngle_degreesH->text().toDouble(); //angle degrees
         double minutesH = ui->spinBox_directGD_inputAngle_minutesH->text().toDouble(); //angle minutes
         double secondsH = ui->spinBox_directGD_inputAngle_secondsH->text().toDouble(); //angle seconds
@@ -122,34 +122,32 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
         break;
     }
     case 2:
-    {//sphere
-        angleOfDMS(degrees, minutes, seconds, angle);
+    {//sphere (need work)
+//        angleOfDMS(degrees, minutes, seconds, angle);
 
-        directGDSphera(latA, lonA, angle, distance, latB, lonB);
+//        directGDSphera(latA, lonA, angle, distance, latB, lonB);
 
-        ui->lineEdit_resDirectGD_Bx->setText(QString::number(latB));
-        ui->lineEdit_resDirectGD_By->setText(QString::number(lonB));
-        //        double reverseAngle;
-        //        double angle;
-        //        double pt1[2], pt2[2];
+//        ui->lineEdit_resDirectGD_Bx->setText(QString::number(latB));
+//        ui->lineEdit_resDirectGD_By->setText(QString::number(lonB));
+//        double reverseAngle;
+//        double angle;
+//        double pt1[2], pt2[2];
 
-        //        angleImDMS(degrees, minutes, seconds, angle);
+//        angleImDMS(degrees, minutes, seconds, angle);
 
-        //        pt1[0] = Radians(latA);
-        //        pt1[1] = Radians(lonA);
-        //        sphereDirect(pt1, Radians(angle), distance / A_E, pt2);
+//        pt1[0] = Radians(latA);
+//        pt1[1] = Radians(lonA);
+//        sphereDirect(pt1, Radians(angle), distance / A_E, pt2);
 
-        //        //rounding to 2 digits after
-        //        ui->lineEdit_resDirectGD_Bx->setText(QString::number(Degrees(pt2[0])));
-        //        ui->lineEdit_resDirectGD_By->setText(QString::number(Degrees(pt2[1])));
-        ////        ui->lineEdit_resDirectGD_reverseAngle->setText(QString::number(reverseAngle));
-
+//        //rounding to 2 digits after
+//        ui->lineEdit_resDirectGD_Bx->setText(QString::number(Degrees(pt2[0])));
+//        ui->lineEdit_resDirectGD_By->setText(QString::number(Degrees(pt2[1])));
+//        ui->lineEdit_resDirectGD_reverseAngle->setText(QString::number(reverseAngle));
         go_next();
 
         break;
     }
     }
-
 
 }
 
@@ -174,8 +172,9 @@ void MainWindow::on_pushButton_inverseGD_back_clicked() //button "Назад" in
 
 void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить" in reverseGD
 {
-    double distance, degrees, minutes, seconds, angle;
-    double lat[2], lon[2];
+    //variable for data
+    double distance, degrees, minutes, seconds, angle, lat[2], lon[2];
+
     lat[0] = ui->lineEdit_inverseGD_inputAx->text().toDouble(); //coordinates of point A (x)
     lon[0] = ui->lineEdit_inverseGD_inputAy->text().toDouble(); //coordinates of point A (y)
     lat[1] = ui->lineEdit_inverseGD_inputBx->text().toDouble(); //coordinates of point A (x)
@@ -188,9 +187,11 @@ void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить"
         //solve invresGD
         inversGDPlane(lat, lon, angle, distance);
 
+        //from fraction in degrees, minutes, seconds
         angleFromDecimalAngle(angle, degrees, minutes, seconds);
         if (degrees < 0) degrees += 360;
 
+        //output data
         ui->lineEdit_resInverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
         ui->spinBox_resInverseGD_Angle_degrees->setValue(int(degrees));
         ui->spinBox_resInverseGD_Angle_minutes->setValue(int(minutes));
@@ -200,24 +201,28 @@ void MainWindow::on_pushButton_inverseGD_solve_clicked() //button "Решить"
         break;
     }
     case 1:
-    {//plane with height
-
+    {//plane height
+        //new data height and angle between points
         double height[2], angleOrent;
-        height[0] = ui->lineEdit_inverseGD_inputAH->text().toDouble();
-        height[1] = ui->lineEdit_inverseGD_inputBH->text().toDouble();
+        height[0] = ui->lineEdit_inverseGD_inputAH->text().toDouble(); //height of point A
+        height[1] = ui->lineEdit_inverseGD_inputBH->text().toDouble(); //height of point B
 
         //solve inversGD
         inversGDPlaneH(lat, lon, height, angle, distance, angleOrent);
 
+        //from fraction in degrees, minutes, seconds
         angleFromDecimalAngle(angle, degrees, minutes, seconds);
         if (degrees < 0) degrees += 360;
 
         ui->lineEdit_resInverseGD_outputL->setText(QString::number(distance, 'f', 2)); //distance output rounded to 2 decimal places
+        //output directional angle
         ui->spinBox_resInverseGD_Angle_degrees->setValue(int(degrees));
         ui->spinBox_resInverseGD_Angle_minutes->setValue(int(minutes));
         ui->spinBox_resInverseGD_Angle_seconds->setValue(int(seconds));
 
+        //from fraction in degrees, minutes, seconds
         angleFromDecimalAngle(angleOrent, degrees, minutes, seconds);
+        //output angle between points
         ui->spinBox_resInverseGD_Angle_degreesH->setValue(int(degrees));
         ui->spinBox_resInverseGD_Angle_minutesH->setValue(int(minutes));
         ui->spinBox_resInverseGD_Angle_secondsH->setValue(int(seconds));
@@ -259,24 +264,28 @@ void MainWindow::go_next() //func to go next
     ui->stackedWidget->setCurrentIndex(ui->stackedWidget->currentIndex() + 1);
 }
 
+
 //changes
 
 
 void MainWindow::setValidator() //change validator in lineEdit
 {
+    //validator for lineEdit with a range of acceptable values from 0 to inf
     QDoubleValidator *validatorDouble = new QDoubleValidator(0.0, qInf(), 2, this);
     validatorDouble->setLocale(QLocale::English); //separator - point
-    ui->lineEdit_directGD_inputL->setValidator(validatorDouble);
-    ui->lineEdit_directGD_inputScale->setValidator(validatorDouble);
 
+
+    //validator for lineEdit with a range of acceptable values from 0 to inf
     QDoubleValidator *validatorDoubleMinus = new QDoubleValidator(-qInf(), qInf(), 2, this);
     validatorDoubleMinus->setLocale(QLocale::English); //separator - point
 
     //directGD
+    ui->lineEdit_directGD_inputL->setValidator(validatorDouble);
+    ui->lineEdit_directGD_inputScale->setValidator(validatorDouble);
+
     ui->lineEdit_directGD_inputAx->setValidator(validatorDoubleMinus);
     ui->lineEdit_directGD_inputAy->setValidator(validatorDoubleMinus);
     ui->lineEdit_directGD_inputAh->setValidator(validatorDoubleMinus);
-
 
     ui->lineEdit_directGD_inputAh->setVisible(false);
     ui->label_directGD_inputH->setVisible(false);
@@ -329,14 +338,12 @@ void MainWindow::setValidator() //change validator in lineEdit
     ui->lineEdit_inverseGD_inputBx->setValidator(validatorDoubleMinus);
     ui->lineEdit_inverseGD_inputBy->setValidator(validatorDoubleMinus);
 
-
     ui->label_inverseGD_m_h->setVisible(false);
     ui->label_inverseGD_m_h_2->setVisible(false);
     ui->label_inverseGD_inputAH->setVisible(false);
     ui->label_inverseGD_inputBH->setVisible(false);
     ui->lineEdit_inverseGD_inputAH->setVisible(false);
     ui->lineEdit_inverseGD_inputBH->setVisible(false);
-
 
     //resInverseGD
 

@@ -5,8 +5,8 @@
 #include <QPoint>
 
 #define A_E 6371.1 //radius Earth
-#define Degrees(x) (x * 57.29577951308232)	// radians -> degrees
-#define Radians(x) (x / 57.29577951308232)	// degrees -> radians
+#define Degrees(x) (x * (180 / M_PI))	// radians -> degrees
+#define Radians(x) (x / (180 / M_PI))	// degrees -> radians
 
 class geodeticProblem
 {
