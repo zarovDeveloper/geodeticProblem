@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>768</width>
-    <height>628</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>10</y>
-      <width>751</width>
-      <height>571</height>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
      </rect>
     </property>
     <property name="font">
@@ -35,10 +35,10 @@
      <widget class="QPushButton" name="pushButton_directGD_main">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>170</y>
-        <width>511</width>
-        <height>71</height>
+        <x>150</x>
+        <y>215</y>
+        <width>500</width>
+        <height>80</height>
        </rect>
       </property>
       <property name="font">
@@ -54,10 +54,10 @@
      <widget class="QPushButton" name="pushButton_inverseGD_main">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>260</y>
-        <width>511</width>
-        <height>71</height>
+        <x>150</x>
+        <y>325</y>
+        <width>500</width>
+        <height>80</height>
        </rect>
       </property>
       <property name="font">
@@ -73,10 +73,10 @@
      <widget class="QLabel" name="label_main_solve">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>130</y>
-        <width>121</width>
-        <height>21</height>
+        <x>150</x>
+        <y>155</y>
+        <width>130</width>
+        <height>40</height>
        </rect>
       </property>
       <property name="font">
@@ -94,7 +94,7 @@
      <widget class="QLabel" name="label_directGD_inputA">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>20</y>
         <width>471</width>
         <height>51</height>
@@ -112,7 +112,7 @@
      <widget class="QLabel" name="label_directGD_inputX">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>80</y>
         <width>31</width>
         <height>41</height>
@@ -130,7 +130,7 @@
      <widget class="QLabel" name="label_directGD_inputY">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>130</y>
         <width>31</width>
         <height>41</height>
@@ -148,7 +148,7 @@
      <widget class="QLabel" name="label_directGD_inputAngle">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>180</y>
         <width>321</width>
         <height>31</height>
@@ -166,7 +166,7 @@
      <widget class="QLabel" name="label_directGD_Angle">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>230</y>
         <width>31</width>
         <height>31</height>
@@ -184,7 +184,7 @@
      <widget class="QLabel" name="label_directGD_L">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>470</y>
         <width>31</width>
         <height>41</height>
@@ -202,10 +202,10 @@
      <widget class="QPushButton" name="pushButton_directGD_solve">
       <property name="geometry">
        <rect>
-        <x>590</x>
-        <y>530</y>
-        <width>131</width>
-        <height>51</height>
+        <x>610</x>
+        <y>525</y>
+        <width>130</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -220,10 +220,10 @@
      <widget class="QPushButton" name="pushButton_directGD_back">
       <property name="geometry">
        <rect>
-        <x>440</x>
-        <y>530</y>
-        <width>131</width>
-        <height>51</height>
+        <x>460</x>
+        <y>525</y>
+        <width>130</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -238,7 +238,7 @@
      <widget class="QLabel" name="label_directGD_degree">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>170</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -251,7 +251,7 @@
      <widget class="QLabel" name="label_directGD_minutes">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>330</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -269,7 +269,7 @@
      <widget class="QLabel" name="label_directGD_seconds">
       <property name="geometry">
        <rect>
-        <x>480</x>
+        <x>500</x>
         <y>220</y>
         <width>16</width>
         <height>31</height>
@@ -287,7 +287,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_degrees">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>220</y>
         <width>71</width>
         <height>41</height>
@@ -321,7 +321,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_minutes">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>190</x>
         <y>220</y>
         <width>141</width>
         <height>41</height>
@@ -355,7 +355,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_seconds">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>350</x>
         <y>220</y>
         <width>141</width>
         <height>41</height>
@@ -389,7 +389,7 @@
      <widget class="QLineEdit" name="lineEdit_directGD_inputAx">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>80</y>
         <width>151</width>
         <height>41</height>
@@ -402,7 +402,7 @@
      <widget class="QLineEdit" name="lineEdit_directGD_inputAy">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>130</y>
         <width>151</width>
         <height>41</height>
@@ -415,7 +415,7 @@
      <widget class="QLineEdit" name="lineEdit_directGD_inputL">
       <property name="geometry">
        <rect>
-        <x>60</x>
+        <x>80</x>
         <y>470</y>
         <width>151</width>
         <height>41</height>
@@ -428,9 +428,9 @@
      <widget class="QLabel" name="label_directGD_m_scale">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>240</x>
         <y>470</y>
-        <width>291</width>
+        <width>351</width>
         <height>41</height>
        </rect>
       </property>
@@ -446,7 +446,7 @@
      <widget class="QLineEdit" name="lineEdit_directGD_inputScale">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>590</x>
         <y>470</y>
         <width>151</width>
         <height>41</height>
@@ -459,7 +459,7 @@
      <widget class="QLabel" name="label_directGD_m">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>80</y>
         <width>21</width>
         <height>41</height>
@@ -477,7 +477,7 @@
      <widget class="QLabel" name="label_directGD_m1">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>130</y>
         <width>21</width>
         <height>41</height>
@@ -495,7 +495,7 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>370</y>
         <width>471</width>
         <height>81</height>
@@ -539,10 +539,10 @@
       <widget class="QLabel" name="label_directGD_inputL">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>0</y>
-         <width>431</width>
-         <height>81</height>
+         <x>40</x>
+         <y>-10</y>
+         <width>421</width>
+         <height>91</height>
         </rect>
        </property>
        <property name="font">
@@ -559,7 +559,7 @@
      <widget class="QLabel" name="label_directGD_m_in_L">
       <property name="geometry">
        <rect>
-        <x>220</x>
+        <x>240</x>
         <y>470</y>
         <width>91</width>
         <height>41</height>
@@ -572,10 +572,10 @@
      <widget class="QComboBox" name="comboBox_directGD">
       <property name="geometry">
        <rect>
-        <x>550</x>
+        <x>570</x>
         <y>30</y>
-        <width>181</width>
-        <height>41</height>
+        <width>200</width>
+        <height>50</height>
        </rect>
       </property>
       <item>
@@ -585,7 +585,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Плоскость с высотой</string>
+        <string>Плоскость H</string>
        </property>
       </item>
       <item>
@@ -602,7 +602,7 @@
      <widget class="QLabel" name="label_directGD_inputH">
       <property name="geometry">
        <rect>
-        <x>270</x>
+        <x>290</x>
         <y>110</y>
         <width>31</width>
         <height>41</height>
@@ -620,7 +620,7 @@
      <widget class="QLineEdit" name="lineEdit_directGD_inputAh">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>330</x>
         <y>110</y>
         <width>151</width>
         <height>41</height>
@@ -633,7 +633,7 @@
      <widget class="QLabel" name="label_directGD_m_h">
       <property name="geometry">
        <rect>
-        <x>470</x>
+        <x>490</x>
         <y>110</y>
         <width>21</width>
         <height>41</height>
@@ -651,7 +651,7 @@
      <widget class="QLabel" name="label_directGD_degree_H">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>170</x>
         <y>320</y>
         <width>16</width>
         <height>31</height>
@@ -664,7 +664,7 @@
      <widget class="QLabel" name="label_directGD_inputAngle_H">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>270</y>
         <width>401</width>
         <height>41</height>
@@ -682,7 +682,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_secondsH">
       <property name="geometry">
        <rect>
-        <x>330</x>
+        <x>350</x>
         <y>320</y>
         <width>141</width>
         <height>41</height>
@@ -716,7 +716,7 @@
      <widget class="QLabel" name="label_directGD_minutes_H">
       <property name="geometry">
        <rect>
-        <x>310</x>
+        <x>330</x>
         <y>320</y>
         <width>16</width>
         <height>31</height>
@@ -734,7 +734,7 @@
      <widget class="QLabel" name="label_directGD_seconds_H">
       <property name="geometry">
        <rect>
-        <x>480</x>
+        <x>500</x>
         <y>320</y>
         <width>16</width>
         <height>31</height>
@@ -752,7 +752,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_degreesH">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>320</y>
         <width>71</width>
         <height>41</height>
@@ -786,7 +786,7 @@
      <widget class="QLabel" name="label_directGD_AngleH">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>330</y>
         <width>31</width>
         <height>31</height>
@@ -804,7 +804,7 @@
      <widget class="QSpinBox" name="spinBox_directGD_inputAngle_minutesH">
       <property name="geometry">
        <rect>
-        <x>170</x>
+        <x>190</x>
         <y>320</y>
         <width>141</width>
         <height>41</height>
@@ -835,13 +835,315 @@
        <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
       </property>
      </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputX_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>80</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputX_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_x_minutes">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_x_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_x_seconds">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputX_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>80</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_y_minutes">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputY_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>130</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputY_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>130</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_directGD_inputY_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>130</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_y_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_directGD_y_seconds">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="resDirectGD_page">
      <widget class="QLabel" name="label_resDirectGD_coordB">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>70</y>
+        <x>40</x>
+        <y>50</y>
         <width>471</width>
         <height>51</height>
        </rect>
@@ -858,8 +1160,8 @@
      <widget class="QLineEdit" name="lineEdit_resDirectGD_Bx">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>130</y>
+        <x>90</x>
+        <y>110</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -888,8 +1190,8 @@
      <widget class="QLabel" name="label_resDirectGD_By">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>180</y>
+        <x>50</x>
+        <y>160</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -906,8 +1208,8 @@
      <widget class="QLineEdit" name="lineEdit_resDirectGD_By">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>180</y>
+        <x>90</x>
+        <y>160</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -930,8 +1232,8 @@
      <widget class="QLabel" name="label_resDirectGD_Bx">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>130</y>
+        <x>50</x>
+        <y>110</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -948,10 +1250,10 @@
      <widget class="QPushButton" name="pushButton_resDirectGD_goToMain">
       <property name="geometry">
        <rect>
-        <x>340</x>
-        <y>360</y>
-        <width>211</width>
-        <height>51</height>
+        <x>380</x>
+        <y>525</y>
+        <width>220</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -966,10 +1268,10 @@
      <widget class="QPushButton" name="pushButton_resDirectGD_back">
       <property name="geometry">
        <rect>
-        <x>190</x>
-        <y>360</y>
-        <width>131</width>
-        <height>51</height>
+        <x>230</x>
+        <y>525</y>
+        <width>130</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -984,8 +1286,8 @@
      <widget class="QLabel" name="label_resDirectGD_m">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>130</y>
+        <x>250</x>
+        <y>110</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1002,8 +1304,8 @@
      <widget class="QLabel" name="label_resDirectGD_m1">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>180</y>
+        <x>250</x>
+        <y>160</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1020,8 +1322,8 @@
      <widget class="QLabel" name="label_resDirectGD_coordB_H">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>230</y>
+        <x>40</x>
+        <y>210</y>
         <width>471</width>
         <height>51</height>
        </rect>
@@ -1038,8 +1340,8 @@
      <widget class="QLineEdit" name="lineEdit_resDirectGD_BH">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>290</y>
+        <x>90</x>
+        <y>270</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1068,8 +1370,8 @@
      <widget class="QLabel" name="label_resDirectGD_BH">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>290</y>
+        <x>50</x>
+        <y>270</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -1086,8 +1388,8 @@
      <widget class="QLabel" name="label_resDirectGD_m_H">
       <property name="geometry">
        <rect>
-        <x>270</x>
-        <y>290</y>
+        <x>250</x>
+        <y>270</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1101,13 +1403,315 @@
        <string>м</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_resDirectGD_x_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>110</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BX_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>110</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BX_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>110</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resDirectGD_x_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>110</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BX_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>110</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resDirectGD_x_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>110</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resDirectGD_y_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>160</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BY_minutes">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>160</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BY_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>160</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resDirectGD_y_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>160</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_resDirectGD_BY_seconds">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>160</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_resDirectGD_y_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>160</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="inputInverseGD_page">
      <widget class="QLabel" name="label_inverseGD_inputAx">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>90</y>
+        <x>50</x>
+        <y>80</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -1124,10 +1728,10 @@
      <widget class="QPushButton" name="pushButton_inverseGD_back">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>480</y>
-        <width>131</width>
-        <height>51</height>
+        <x>460</x>
+        <y>525</y>
+        <width>130</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -1142,8 +1746,8 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputAx">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>90</y>
+        <x>90</x>
+        <y>80</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1158,8 +1762,8 @@
      <widget class="QLabel" name="label_inverseGD_inputAy">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>140</y>
+        <x>50</x>
+        <y>130</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -1176,10 +1780,10 @@
      <widget class="QPushButton" name="pushButton_inverseGD_solve">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>480</y>
-        <width>131</width>
-        <height>51</height>
+        <x>610</x>
+        <y>525</y>
+        <width>130</width>
+        <height>50</height>
        </rect>
       </property>
       <property name="font">
@@ -1194,8 +1798,8 @@
      <widget class="QLabel" name="label_inverseGD_inputA">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>30</y>
+        <x>40</x>
+        <y>20</y>
         <width>471</width>
         <height>51</height>
        </rect>
@@ -1212,8 +1816,8 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputAy">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>140</y>
+        <x>90</x>
+        <y>130</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1228,7 +1832,7 @@
      <widget class="QLabel" name="label_inverseGD_inputBx">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>310</y>
         <width>31</width>
         <height>41</height>
@@ -1246,7 +1850,7 @@
      <widget class="QLabel" name="label_inverseGD_inputB">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>40</x>
         <y>250</y>
         <width>471</width>
         <height>51</height>
@@ -1264,7 +1868,7 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputBx">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>310</y>
         <width>151</width>
         <height>41</height>
@@ -1280,7 +1884,7 @@
      <widget class="QLabel" name="label_inverseGD_inputBy">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>360</y>
         <width>31</width>
         <height>41</height>
@@ -1298,7 +1902,7 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputBy">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>360</y>
         <width>151</width>
         <height>41</height>
@@ -1314,8 +1918,8 @@
      <widget class="QLabel" name="label_inverseGD_m">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>90</y>
+        <x>250</x>
+        <y>80</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1332,8 +1936,8 @@
      <widget class="QLabel" name="label_inverseGD_m1">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>140</y>
+        <x>250</x>
+        <y>130</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1350,7 +1954,7 @@
      <widget class="QLabel" name="label_inverseGD_m2">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>310</y>
         <width>21</width>
         <height>41</height>
@@ -1368,7 +1972,7 @@
      <widget class="QLabel" name="label_inverseGD_m3">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>360</y>
         <width>21</width>
         <height>41</height>
@@ -1386,10 +1990,10 @@
      <widget class="QComboBox" name="comboBox_inverseGD">
       <property name="geometry">
        <rect>
-        <x>540</x>
+        <x>570</x>
         <y>30</y>
-        <width>181</width>
-        <height>41</height>
+        <width>200</width>
+        <height>50</height>
        </rect>
       </property>
       <item>
@@ -1399,7 +2003,7 @@
       </item>
       <item>
        <property name="text">
-        <string>Плоскость с высотой</string>
+        <string>Плоскость H</string>
        </property>
       </item>
       <item>
@@ -1411,7 +2015,7 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputBH">
       <property name="geometry">
        <rect>
-        <x>70</x>
+        <x>90</x>
         <y>410</y>
         <width>151</width>
         <height>41</height>
@@ -1427,7 +2031,7 @@
      <widget class="QLabel" name="label_inverseGD_m_h">
       <property name="geometry">
        <rect>
-        <x>230</x>
+        <x>250</x>
         <y>410</y>
         <width>21</width>
         <height>41</height>
@@ -1445,7 +2049,7 @@
      <widget class="QLabel" name="label_inverseGD_inputBH">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>50</x>
         <y>410</y>
         <width>31</width>
         <height>41</height>
@@ -1463,8 +2067,8 @@
      <widget class="QLabel" name="label_inverseGD_m_h_2">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>190</y>
+        <x>250</x>
+        <y>180</y>
         <width>21</width>
         <height>41</height>
        </rect>
@@ -1481,8 +2085,8 @@
      <widget class="QLabel" name="label_inverseGD_inputAH">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>190</y>
+        <x>50</x>
+        <y>180</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -1499,8 +2103,8 @@
      <widget class="QLineEdit" name="lineEdit_inverseGD_inputAH">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>190</y>
+        <x>90</x>
+        <y>180</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1512,13 +2116,617 @@
        <string>0.00</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_inversGD_Ax_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAX_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>80</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAX_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>80</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Ax_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAX_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>130</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Ax_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>80</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Ay_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAY_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>130</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAY_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>130</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Ay_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputAY_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>80</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Ay_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>130</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Bx_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>310</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBX_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>310</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBX_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>310</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Bx_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>310</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBX_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>310</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_Bx_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>310</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_By_degree">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>360</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>°</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBY_seconds">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>360</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBY_degrees">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>360</y>
+        <width>71</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_By_minute">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>360</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string> '</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_invresGD_inputBY_minutes">
+      <property name="geometry">
+       <rect>
+        <x>190</x>
+        <y>360</y>
+        <width>141</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="wrapping">
+       <bool>false</bool>
+      </property>
+      <property name="frame">
+       <bool>true</bool>
+      </property>
+      <property name="readOnly">
+       <bool>false</bool>
+      </property>
+      <property name="accelerated">
+       <bool>false</bool>
+      </property>
+      <property name="keyboardTracking">
+       <bool>true</bool>
+      </property>
+      <property name="showGroupSeparator" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="maximum">
+       <number>1000000000</number>
+      </property>
+      <property name="stepType">
+       <enum>QAbstractSpinBox::AdaptiveDecimalStepType</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_inversGD_By_second">
+      <property name="geometry">
+       <rect>
+        <x>500</x>
+        <y>360</y>
+        <width>16</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>&quot;</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="resInverseGD_page">
      <widget class="QLabel" name="label_resInverseGD_minutes">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>80</y>
+        <x>330</x>
+        <y>100</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1535,8 +2743,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_degrees">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>80</y>
+        <x>90</x>
+        <y>100</y>
         <width>71</width>
         <height>41</height>
        </rect>
@@ -1569,10 +2777,10 @@
      <widget class="QLabel" name="label_resInverseGD_AngleA">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>90</y>
+        <x>50</x>
+        <y>100</y>
         <width>31</width>
-        <height>31</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -1587,8 +2795,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_minutes">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>80</y>
+        <x>190</x>
+        <y>100</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -1621,8 +2829,8 @@
      <widget class="QLabel" name="label_resInverse_degree">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>80</y>
+        <x>170</x>
+        <y>100</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1634,8 +2842,8 @@
      <widget class="QLabel" name="label_resInverseGD_angle">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>40</y>
+        <x>40</x>
+        <y>50</y>
         <width>311</width>
         <height>31</height>
        </rect>
@@ -1652,8 +2860,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_seconds">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>80</y>
+        <x>350</x>
+        <y>100</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -1686,8 +2894,8 @@
      <widget class="QLabel" name="label_resInverseGD_seconds">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>80</y>
+        <x>500</x>
+        <y>100</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1704,8 +2912,8 @@
      <widget class="QLabel" name="label_resInverseGD_L">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>200</y>
+        <x>50</x>
+        <y>220</y>
         <width>31</width>
         <height>41</height>
        </rect>
@@ -1722,8 +2930,8 @@
      <widget class="QLabel" name="label_resInverseGD_outputL">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>150</y>
+        <x>40</x>
+        <y>170</y>
         <width>691</width>
         <height>31</height>
        </rect>
@@ -1740,8 +2948,8 @@
      <widget class="QLineEdit" name="lineEdit_resInverseGD_outputL">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>200</y>
+        <x>90</x>
+        <y>220</y>
         <width>151</width>
         <height>41</height>
        </rect>
@@ -1756,8 +2964,8 @@
      <widget class="QPushButton" name="pushButton_resInverseGD_back">
       <property name="geometry">
        <rect>
-        <x>210</x>
-        <y>390</y>
+        <x>230</x>
+        <y>525</y>
         <width>131</width>
         <height>51</height>
        </rect>
@@ -1774,8 +2982,8 @@
      <widget class="QPushButton" name="pushButton_resInverseGD_goToMain">
       <property name="geometry">
        <rect>
-        <x>360</x>
-        <y>390</y>
+        <x>380</x>
+        <y>525</y>
         <width>211</width>
         <height>51</height>
        </rect>
@@ -1792,9 +3000,9 @@
      <widget class="QLabel" name="label_resInverseGD_m">
       <property name="geometry">
        <rect>
-        <x>230</x>
-        <y>200</y>
-        <width>21</width>
+        <x>250</x>
+        <y>220</y>
+        <width>51</width>
         <height>41</height>
        </rect>
       </property>
@@ -1810,8 +3018,8 @@
      <widget class="QLabel" name="label_resInverseGD_minutesH">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>310</y>
+        <x>330</x>
+        <y>340</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1828,8 +3036,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_secondsH">
       <property name="geometry">
        <rect>
-        <x>330</x>
-        <y>310</y>
+        <x>350</x>
+        <y>340</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -1862,8 +3070,8 @@
      <widget class="QLabel" name="label_resInverse_degreeH">
       <property name="geometry">
        <rect>
-        <x>150</x>
-        <y>310</y>
+        <x>170</x>
+        <y>340</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1875,8 +3083,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_minutesH">
       <property name="geometry">
        <rect>
-        <x>170</x>
-        <y>310</y>
+        <x>190</x>
+        <y>340</y>
         <width>141</width>
         <height>41</height>
        </rect>
@@ -1909,8 +3117,8 @@
      <widget class="QSpinBox" name="spinBox_resInverseGD_Angle_degreesH">
       <property name="geometry">
        <rect>
-        <x>70</x>
-        <y>310</y>
+        <x>90</x>
+        <y>340</y>
         <width>71</width>
         <height>41</height>
        </rect>
@@ -1943,10 +3151,10 @@
      <widget class="QLabel" name="label_resInverseGD_AngleH">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>320</y>
+        <x>50</x>
+        <y>340</y>
         <width>31</width>
-        <height>31</height>
+        <height>41</height>
        </rect>
       </property>
       <property name="font">
@@ -1961,8 +3169,8 @@
      <widget class="QLabel" name="label_resInverseGD_secondsH">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>310</y>
+        <x>500</x>
+        <y>340</y>
         <width>16</width>
         <height>31</height>
        </rect>
@@ -1979,8 +3187,8 @@
      <widget class="QLabel" name="label_resInverseGD_angleH">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>270</y>
+        <x>40</x>
+        <y>290</y>
         <width>311</width>
         <height>31</height>
        </rect>

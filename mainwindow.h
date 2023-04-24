@@ -40,7 +40,7 @@ private slots:
 
     void go_next(); //func to go next
 
-    void setValidator(); //func for set Validator in lineEdit and spinBox
+    void settings(); //func for set Validator in lineEdit and spinBox
 
     void on_pushButton_inverseGD_back_clicked();
 
@@ -89,6 +89,18 @@ private slots:
     void on_spinBox_resInverseGD_Angle_minutesH_valueChanged(int arg1);
 
     void on_spinBox_resInverseGD_Angle_secondsH_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputX_degrees_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputX_minutes_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputX_seconds_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputY_degrees_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputY_minutes_valueChanged(int arg1);
+
+    void on_spinBox_directGD_inputY_seconds_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;
