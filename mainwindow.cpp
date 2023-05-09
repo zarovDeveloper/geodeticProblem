@@ -43,6 +43,11 @@ void MainWindow::on_pushButton_inverseGD_main_clicked() //button "Обратна
     ui->stackedWidget->setCurrentIndex(3); //go to reverseGD
 }
 
+void MainWindow::on_pushButton_graph_clicked() //button "График" in main
+{
+    ui->stackedWidget->setCurrentIndex(5); //go to graph
+}
+
 //page "directGD
 
 void MainWindow::on_pushButton_directGD_back_clicked() //button "Назад" in directGD
@@ -157,8 +162,6 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
     }
     case 3: //geod WGS-84
     {
-        double angleRevers;
-
         angleOfDMS(degrees, minutes, seconds, angle);
 
         degrees = ui->spinBox_directGD_inputX_degrees->value();
@@ -174,7 +177,7 @@ void MainWindow::on_pushButton_directGD_solve_clicked() //button "Решить" 
         angleOfDMS(degrees, minutes, seconds, lonA);
 
         //solve direct on geod
-        directGDGeod(latA, lonA, angle, distance, 6356863.019, 0.0066934216, 0.0067385254, latB, lonB, angleRevers);
+        directGDGeod(latA, lonA, angle, distance, latB, lonB);
 
         //output val
         angleFromDecimalAngle(latB, degrees, minutes, seconds);
@@ -323,6 +326,63 @@ void MainWindow::on_pushButton_resInverseGD_goToMain_clicked() //button "На г
     go_main();
 }
 
+//page "graph"
+
+void MainWindow::on_pushButton_graph_createGraph_clicked() //button "Создать график" in graph
+{
+    ui->widget_resGraph->clearPlottables();
+    ui->widget_resGraph->replot();
+
+    const int pointCount = ui->tableWidget_graph_inputPoint->rowCount();
+
+    QCPCurve *graph = new QCPCurve(ui->widget_resGraph->xAxis, ui->widget_resGraph->yAxis);
+    ui->widget_resGraph->xAxis->setLabel("Проложение");
+    ui->widget_resGraph->yAxis->setLabel("Высота");;
+
+
+    QVector <QCPCurveData> dataGraph(pointCount);
+    QVector <double> x(pointCount), y(pointCount);
+
+    int h, d = 0;
+
+    for (int i = 0; i < pointCount; i++)
+    {
+        QSpinBox* valHeight = qobject_cast<QSpinBox*>(ui->tableWidget_graph_inputPoint->cellWidget(i, 0));
+        QSpinBox* valDistance = qobject_cast<QSpinBox*>(ui->tableWidget_graph_inputPoint->cellWidget(i, 1));
+        if (i)
+        {
+            d += valDistance->value();
+        }
+        else
+            d = valDistance->value();
+
+        h = valHeight->value();
+
+        dataGraph[i] = QCPCurveData(i, d, h);
+
+
+        x[i] = d;
+        y[i] = h;
+    }
+
+    ui->widget_resGraph->addGraph();
+    ui->widget_resGraph->graph(0)->setData(x, y);
+    ui->widget_resGraph->graph(0)->setPen(QColor(255, 0, 0, 255));//задаем цвет точки
+    ui->widget_resGraph->graph(0)->setLineStyle(QCPGraph::lsNone);//убираем линии
+    //формируем вид точек
+    ui->widget_resGraph->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssCircle, 10
+                                                                   ));
+
+    tracer = new QCPItemTracer(ui->widget_resGraph);
+    tracer->setGraph(ui->widget_resGraph->graph(0));   // Трассировщик будет работать с графиком
+
+    graph->data()->set(dataGraph, true);
+
+    ui->widget_resGraph->setInteractions(QCP::iRangeDrag | QCP::iRangeZoom | QCP::iSelectPlottables);
+    ui->widget_resGraph->axisRect()->setupFullAxesBox();
+    ui->widget_resGraph->rescaleAxes();
+    ui->widget_resGraph->replot();
+}
 
 //function
 
@@ -557,6 +617,21 @@ void MainWindow::settings() //settings
     ui->spinBox_resDirectGD_BY_seconds->setButtonSymbols(QAbstractSpinBox::NoButtons);
     ui->label_resDirectGD_y_second->setVisible(false);
 
+    //graph page
+
+    connect(ui->pushButton_graph_back, SIGNAL(clicked()), this, SLOT(go_main()));
+    connect(ui->pushButton_graph_createGraph, SIGNAL(clicked()), this, SLOT(go_next()));
+
+    ui->spinBox_graph_inputPointCount->setRange(2, 12);
+
+
+    //resGraph page
+
+    connect(ui->pushButton_resGraph_back, SIGNAL(clicked()), this, SLOT(go_back()));
+    connect(ui->pushButton_resGraph_goMain, SIGNAL(clicked()), this, SLOT(go_main()));
+
+
+    connect(ui->widget_resGraph, &QCustomPlot::mousePress, this, &MainWindow::slotMousePress);
 }
 
 void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1) //dynamic scale change
@@ -577,6 +652,29 @@ void MainWindow::on_lineEdit_directGD_inputScale_textChanged(const QString &arg1
         QString str = arg1;
         str.remove("e");
         ui->lineEdit_directGD_inputScale->setText(str);
+    }
+}
+
+void MainWindow::on_spinBox_graph_inputPointCount_valueChanged(int arg1) //set row count in tableWidget (graph page)
+{
+    ui->tableWidget_graph_inputPoint->setRowCount(arg1);
+
+    for (int i = 0; i < ui->tableWidget_graph_inputPoint->rowCount(); ++i)
+    {
+        for (int j = 0; j < ui->tableWidget_graph_inputPoint->columnCount(); ++j)
+        {
+            QTableWidgetItem* item = ui->tableWidget_graph_inputPoint->item(i, j);
+            if (!item)
+            {
+                item = new QTableWidgetItem;
+                ui->tableWidget_graph_inputPoint->setItem(i, j, item);
+            }
+            QSpinBox *edit = new QSpinBox(ui->tableWidget_graph_inputPoint);
+            edit->setRange(-11000, 8848);
+            edit->setButtonSymbols(QAbstractSpinBox::NoButtons);
+
+            ui->tableWidget_graph_inputPoint->setCellWidget(i, j, edit);
+        }
     }
 }
 
@@ -1205,3 +1303,21 @@ void MainWindow::on_comboBox_inverseGD_currentIndexChanged(int index)
         ui->label_resInverseGD_m->setText("км");
     }
 }
+
+void MainWindow::slotMousePress(QMouseEvent *event)
+{
+    // Определяем координату X на графике, где был произведён клик мышью
+    double coordX = ui->widget_resGraph->xAxis->pixelToCoord(event->pos().x());
+
+    // По координате X клика мыши определим ближайшие координаты для трассировщика
+    tracer->setGraphKey(coordX);
+
+    // Выводим координаты точки графика, где установился трассировщик, в lineEdit
+    ui->lineEdit->setText("x: " + QString::number(tracer->position->key()) +
+                          " y: " + QString::number(tracer->position->value()));
+
+    ui->widget_resGraph->replot(); // Перерисовываем содержимое полотна графика
+}
+
+
+

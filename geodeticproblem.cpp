@@ -1,5 +1,8 @@
 #include "geodeticproblem.h"
+
 using namespace std;
+
+using namespace GeographicLib;
 
 geodeticProblem::geodeticProblem()
 {
@@ -43,9 +46,15 @@ void geodeticProblem::directGDSphera(double latA, double lonA, double angle, dou
     angle = Degrees(angle);
 }
 
-void geodeticProblem::directGDGeod(double latA, double lonA, double angl, double s, double LSAE, double EEF, double EES, double &latB, double &lonB, double &angleRevers)
+void geodeticProblem::directGDGeod(double latA, double lonA, double angl, double s, double &latB, double &lonB)
 {
     //need work
+    GeographicLib::Geodesic geod(
+                GeographicLib::Constants::WGS84_a(),
+                GeographicLib::Constants::WGS84_f()
+                );
+
+    geod.Direct(latA, lonA, angl, s, latB, lonB);
 }
 
 

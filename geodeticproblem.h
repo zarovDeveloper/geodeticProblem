@@ -3,6 +3,7 @@
 
 #include <math.h>
 #include <QPoint>
+#include <GeographicLib/Geodesic.hpp>
 
 #define A_E 6371.1 //radius Earth
 #define Degrees(x) (x * (180 / M_PI))	// radians -> degrees
@@ -15,7 +16,7 @@ public:
 
     bool setData(double latB, double lonB, double angleRevers, double distance);
 
-    void directGDGeod(double latA, double lonA, double angle, double distance, double largeSemiAxisEllipsoid, double eccentricityEllipsoidFirst, double eccentricityEllipsoidSecond, double &latB, double &lonB, double &angleRevers);
+    void directGDGeod(double latA, double lonA, double angle, double distance, double &latB, double &lonB);
 
     void directGDPlane(double latA, double lonA, double angle, double distance, double &latB, double &lonB);
 

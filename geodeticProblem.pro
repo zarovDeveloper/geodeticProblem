@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 TARGET = geodeticProblem
 TEMPLATE = app
@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    geodeticproblem.cpp
+    geodeticproblem.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
         mainwindow.h \
-    geodeticproblem.h
+    geodeticproblem.h \
+    qcustomplot.h
 
 FORMS += \
         mainwindow.ui
@@ -41,4 +43,9 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+win32:CONFIG(release, debug|release): LIBS += -L'C:/Program Files/GeographicLib/lib/' -llibGeographicLib.dll
+else:win32:CONFIG(debug, debug|release): LIBS += -L'C:/Program Files/GeographicLib/lib/' -llibGeographicLib.dlld
+else:unix: LIBS += -L'C:/Program Files/GeographicLib/lib/' -llibGeographicLib.dll
 
+INCLUDEPATH += 'C:/Program Files/GeographicLib/include'
+DEPENDPATH += 'C:/Program Files/GeographicLib/include'

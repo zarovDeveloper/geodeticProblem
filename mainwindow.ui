@@ -29,14 +29,14 @@
      </font>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>6</number>
     </property>
     <widget class="QWidget" name="main_page">
      <widget class="QPushButton" name="pushButton_directGD_main">
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>215</y>
+        <y>160</y>
         <width>500</width>
         <height>80</height>
        </rect>
@@ -55,7 +55,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>325</y>
+        <y>270</y>
         <width>500</width>
         <height>80</height>
        </rect>
@@ -74,7 +74,7 @@
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>155</y>
+        <y>100</y>
         <width>130</width>
         <height>40</height>
        </rect>
@@ -87,6 +87,25 @@
       </property>
       <property name="text">
        <string>Решить:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_graph">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>380</y>
+        <width>500</width>
+        <height>80</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Roboto</family>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Графики</string>
       </property>
      </widget>
     </widget>
@@ -3203,11 +3222,163 @@
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="graph_page">
+     <widget class="QPushButton" name="pushButton_graph_back">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>525</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Назад</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_graph_createGraph">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>525</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Построить график</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_graph_inputPointCount">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>481</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Выберите необходимое количество точек:</string>
+      </property>
+     </widget>
+     <widget class="QSpinBox" name="spinBox_graph_inputPointCount">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>20</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QTableWidget" name="tableWidget_graph_inputPoint">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>261</width>
+        <height>421</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>18</pointsize>
+       </font>
+      </property>
+      <column>
+       <property name="text">
+        <string>Высота (м)</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Проложение (м)</string>
+       </property>
+      </column>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="resGraph_page">
+     <widget class="QCustomPlot" name="widget_resGraph" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>760</width>
+        <height>450</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_resGraph_goMain">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>525</y>
+        <width>211</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Вернуться на главную</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_resGraph_back">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>525</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Назад</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>760</width>
+        <height>30</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

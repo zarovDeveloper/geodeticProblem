@@ -6,6 +6,7 @@
 #include <QtWidgets>
 #include <cmath>
 #include <qmath.h>
+#include <qcustomplot.h>
 #include "geodeticproblem.h"
 
 namespace Ui {
@@ -102,6 +103,12 @@ private slots:
 
     void on_spinBox_directGD_inputY_seconds_valueChanged(int arg1);
 
+    void on_pushButton_graph_clicked();
+
+    void on_spinBox_graph_inputPointCount_valueChanged(int arg1);
+
+    void on_pushButton_graph_createGraph_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -109,7 +116,6 @@ private:
     {
         angle = degrees + (minutes / 60.0) + (seconds / 3600.0);
     }
-
 
     void angleFromDecimalAngle(double angle, double& degrees, double& minutes, double& seconds)
     {
@@ -121,6 +127,13 @@ private:
 
         seconds = round(tmpSeconds);
     }
+
+    QCPItemTracer *tracer;
+
+private slots:
+
+    void slotMousePress(QMouseEvent * event);
+
 };
 
 #endif // MAINWINDOW_H
